@@ -1,61 +1,57 @@
-/*
- * @Author:douya 
- * @Date: 2018-08-12 16:37:57 
- * @Last Modified by: douya
- * @Last Modified time: 2018-08-12 18:17:38
- * @Description: 基础页面 
- */
 <template>
-<!--   <div class="home app-wrapper">
-    <Header/>
-    <div class="body-container">
-        <div class="sidebar-container">
-             <NavMenu />
-           </div>
-          <div class="main-container">
-             <TabList/>  
-             <FrameView/>
-             </div>
-    </div>   
-  </div> -->
- <el-container style="height:100%">
-  <el-header><Header/></el-header>
-  <el-container>
-    <el-aside style="width:inherit"><NavMenu /></el-aside>
-    <el-container>
-    <el-header><TabList/></el-header>
-      <el-main><FrameView/></el-main>
-    </el-container>
-  </el-container>
-</el-container>
+  <div class="hello">
+    <h1>权限管理</h1>
+    <p>
+      For guide and recipes on how to configure / customize this project,<br>
+      check out the
+      <a href="https://cli.vuejs.org" target="_blank">vue-cli documentation</a>.
+    </p>
+    <h3>Installed CLI Plugins</h3>
+    <ul>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank">babel</a></li>
+    </ul>
+    <h3>Essential Links</h3>
+    <ul>
+      <li><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
+      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
+      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
+      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
+      <li><a href="https://news.vuejs.org" target="_blank">News</a></li>
+    </ul>
+    <h3>Ecosystem</h3>
+    <ul>
+      <li><a href="https://router.vuejs.org" target="_blank">vue-router</a></li>
+      <li><a href="https://vuex.vuejs.org" target="_blank">vuex</a></li>
+      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank">vue-devtools</a></li>
+      <li><a href="https://vue-loader.vuejs.org" target="_blank">vue-loader</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
+    </ul>
+  </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import layout from "@/components/layout";
-
-
 export default {
-  name: "home",
-  components: {
-    ...layout
+  name: 'HelloWorld',
+  props: {
+    msg: String
   }
-};
+}
 </script>
 
-<style lang = 'less'>
-/*.app-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  .body-container {
-      flex:1;
-      display: flex;
-      flex-direction: row;
-      .main-container {
-          flex:1;
-      }
-    }
-}*/
-
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
 </style>

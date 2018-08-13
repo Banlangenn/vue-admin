@@ -95,6 +95,9 @@ export default {
     
   // },
   methods: {
+    //  ...mapMutations([
+    //   'setPermission'
+    // ]),
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
       this.data = keyPath +'---'+keyPath 
@@ -103,6 +106,8 @@ export default {
       console.log(key, keyPath);
     },
     isCollapsnFn(){
+
+        this.$store.commit('setPermission',{dd:'dddd'})
       console.log(this.$route.fullPath)
       this.isCollapse = !this.isCollapse;
       // this.menuWidth =  this.isCollapse ? 65 : 205;

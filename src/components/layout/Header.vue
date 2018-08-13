@@ -2,7 +2,7 @@
 <template>
   <div class="head">
    60px
-   <button></button>
+  
   </div>
 </template>
 <script>
