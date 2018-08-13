@@ -2,12 +2,13 @@
  * @Author:douya 
  * @Date: 2018-08-12 16:06:50 
  * @Last Modified by:   LJW
- * @Last Modified time: 2018-08-13 14:34:42
+ * @Last Modified time: 2018-08-13 17:54:57
  * @Description: 用哪个打开哪个   import  和 use
  */
 // import 'element-ui/lib/theme-chalk/index.css';
 import Vue from 'vue';
 import {
+  // Scrollbar,
 //   Pagination,
 //   Dialog,
 //   Autocomplete,
@@ -76,7 +77,7 @@ import {
 //   Message,
 //   Notification
 } from 'element-ui';
-
+// Vue.use(Scrollbar)
 // Vue.use(Pagination);
 // Vue.use(Dialog);
 // Vue.use(Autocomplete);
