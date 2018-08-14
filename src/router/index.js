@@ -17,15 +17,32 @@ export default new Router({
           {
               path: "/about",
               name: "about",
-              component: () => import(/* webpackChunkName: "about" */ "@/views/others/About.vue")
+              component: () => import(/* webpackChunkName: "about" */ "@/views/others/About.vue"),
+              meta:{icon:'el-icon-location',title:'dsds'}
             },
             {
               path: "/helloWorld",
               name: "helloWorld",
-              component: () => import(/* webpackChunkName: "HelloWorld" */ "@/views/others/HelloWorld.vue")
+              component: () => import(/* webpackChunkName: "HelloWorld" */ "@/views/others/HelloWorld.vue"),
+              meta:{icon:'el-icon-location',title:'mdkls'}
             }
       ]
     },
     
   ]
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

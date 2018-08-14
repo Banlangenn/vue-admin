@@ -2,7 +2,7 @@
  * @Author:douya 
  * @Date: 2018-08-12 16:06:50 
  * @Last Modified by:   LJW
- * @Last Modified time: 2018-08-13 17:54:57
+ * @Last Modified time: 2018-08-14 17:00:10
  * @Description: 用哪个打开哪个   import  和 use
  */
 // import 'element-ui/lib/theme-chalk/index.css';
@@ -48,7 +48,7 @@ import {
 //   TabPane,
 //   Tag,
 //   Tree,
-//   Alert,
+  Alert,
 //   Slider,
 //   Icon,
   // Row,
@@ -117,7 +117,7 @@ Vue.use(MenuItemGroup);
 // Vue.use(TabPane);
 // Vue.use(Tag);
 // Vue.use(Tree);
-// Vue.use(Alert);
+Vue.use(Alert);
 // Vue.use(Slider);
 // Vue.use(Icon);
 // Vue.use(Row);

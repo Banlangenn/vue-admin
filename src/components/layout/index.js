@@ -1,4 +1,4 @@
-  import NavMenu from './NavMenu'
+  import NavMenu from './NavMenu/index.vue'
   import TabList from './TabList'
   import FrameView from './FrameView'
   import Header from './Header'

@@ -13,7 +13,13 @@
       active-text-color="#ffd04b"
       :router= true
       >
-  <el-submenu index="/k">
+
+
+
+ 
+    <MenuItem v-for="route of this.$store.state.permission"  :key="route.name" :item="route"     :base-path="route.path"  />  
+
+<!--   <el-submenu index="kkk">
     <template slot="title">
       <i class="el-icon-location"></i>
       <span slot="title">导航一</span>
@@ -27,10 +33,14 @@
       <el-menu-item index="1-4-1">选项1</el-menu-item>
     </el-submenu>
   </el-submenu>
+
+ 
   <el-menu-item index="2">
     <i class="el-icon-menu"></i>
     <span slot="title">导航二</span>
   </el-menu-item>
+
+
   <el-menu-item index="3" disabled>
     <i class="el-icon-document"></i>
     <span slot="title">导航三</span>
@@ -75,22 +85,30 @@
       <el-menu-item index="134-4-1">选项1</el-menu-item>
     </el-submenu>
   </el-submenu>
+ -->
+
 
 </el-menu>
   </div>
 </template>
 
 <script>
+import MenuItem from './MenuItem'
 export default {
   name: "navMenu",
   data(){
     return {
       data:'首頁',
-    
       isCollapse:false
     }
   },
-
+  components: { MenuItem },
+  created(){
+      console.log('this.$store.state')
+      console.log(this.$store.state)
+      console.log('this.$route.state')
+      console.log(this.$route)
+  },
   // computed: {
     
   // },
@@ -106,8 +124,7 @@ export default {
       console.log(key, keyPath);
     },
     isCollapsnFn(){
-
-        this.$store.commit('setPermission',{dd:'dddd'})
+      // this.$store.commit('setPermission',)
       console.log(this.$route.fullPath)
       this.isCollapse = !this.isCollapse;
       // this.menuWidth =  this.isCollapse ? 65 : 205;
@@ -118,8 +135,10 @@ export default {
 
 <style>
   .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
+    /*width: 230px;*/
     min-height: 400px;
+    /*height: 100%*/
+
   }
   .is-dark {
         background: #303133;

@@ -22,7 +22,7 @@
   <el-header><Header/></el-header>
   <el-container>
     <el-aside style="width:inherit"><NavMenu /></el-aside>
-    <el-container>
+    <el-container >
     <el-header><TabList/></el-header>
       <el-main><FrameView/></el-main>
     </el-container>
