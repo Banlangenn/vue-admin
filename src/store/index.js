@@ -1,8 +1,8 @@
 /*
  * @Author:douya 
  * @Date: 2018-08-12 01:05:13 
- * @Last Modified by: xiaoliu
- * @Last Modified time: 2018-08-13 23:39:26
+ * @Last Modified by:   LJW
+ * @Last Modified time: 2018-08-15 09:44:55
  * @Description: 我们组装模块并导出 store 的地方 
  * 1.需要存在 本地的放在外边 跟信息 好取 好拿 好存 
  * 2.需要配置vuex 组件 plugins
@@ -65,7 +65,8 @@ plugins.push(createPersistedState({
 
 const initstate = {
   userinfo:{},
-  permission:[]
+  permission:[],
+  routerArray:[]
 }
 
 
