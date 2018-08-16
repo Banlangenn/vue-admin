@@ -171,7 +171,7 @@ const routerObj2 = [
 							
 								 {
 								path: "about46/helloWorld2-6/helloWorld2-3",
-								name: "about48",
+						
 								component: () => import(/* webpackChunkName: "about" */ "@/views/others/About.vue"),
 								meta:{icon:'el-icon-setting',title:'测试'},
 							}
@@ -181,7 +181,6 @@ const routerObj2 = [
 {
 	path: '/step2',
 		component: () => import(/* webpackChunkName: "index" */ "@/views/Index.vue"),
-		redirect: '/step2/index',
 		meta: {
 			title: '管理',
 			icon: 'el-icon-location',
@@ -190,7 +189,7 @@ const routerObj2 = [
 								
 							{
 								path: "index",
-								name: "helloWorld",
+							
 								component: () => import(/* webpackChunkName: "HelloWorld" */ "@/views/manage/PermissionMg.vue"),
 								meta:{icon:'el-icon-setting',title:'权限管理'}
 							}

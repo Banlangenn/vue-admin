@@ -71,43 +71,89 @@
 
   export default {
     data() {
-      const data = [{
-        id: 1,
-        label: '一级 1',
-        icon:'dsd',
-        children: [{
-          id: 4,
-          label: '二级 1-1',
-          children: [{
-            id: 9,
-            label: '三级 1-1-1'
-          }, {
-            id: 10,
-            label: '三级 1-1-2'
-          }]
-        }]
-      }, {
-        id: 2,
-        label: '一级 2',
-        children: [{
-          id: 5,
-          label: '二级 2-1'
-        }, {
-          id: 6,
-          label: '二级 2-2'
-        }]
-      }, {
-        id: 3,
-        label: '一级 3',
-        children: [{
-          id: 7,
-          label: '二级 3-1'
-        }, {
-          id: 8,
-          label: '二级 3-2'
-        }]
-      }];
+      const data = [];
+
+      
+let authList = [
+  {
+      id:"1",
+      parentId:"0",
+      menuName:'一级1',
+      icon: '',
+  },{
+      id:"2",
+      parentId:"0",
+      menuName:'一级2',
+      comName:'xxx',
+      icon: '',
+  },
+  {
+      id:"3",
+      parentId:"0",
+      menuName:'一级3',
+      comName:'xxx',
+      icon: '',
+  },
+  {
+      id:"10",
+      parentId:"1",
+     menuName:'一级1-1',
+      comName:'xxx',
+      icon: '',
+  },
+    {
+      id:"11",
+      parentId:"1",
+     menuName:'一级1-2',
+      comName:'xxx',
+      icon: '',
+  },
+    {
+      id:"22",
+      parentId:"2",
+     menuName:'一级2-1',
+      comName:'xxx',
+      icon: '',
+  },
+    {
+      id:"19  ",
+      parentId:"2",
+     menuName:'一级2-2',
+      comName:'xxx',
+      icon: '',
+  },
+    {
+      id:"23",
+      parentId:"1",
+     menuName:'一级1-3',
+      comName:'xxx',
+      icon: '',
+  },
+    {
+      id:"24",
+      parentId:"1",
+     menuName:'一级1-4',
+      comName:'xxx',
+      icon: '',
+  },
+]
+function authTree(list,nodeId,targetArr){
+ if(!targetArr){return}
+  list.forEach((element,i) => {
+  if(element.parentId ==  nodeId){
+    element.children = [];
+    targetArr.push(element)
+    authTree(list,element.id,element.children)
+    }
+    });
+}
+
+authTree(JSON.parse(JSON.stringify(authList)),0,data)
+
+
+
       return {
+        node:'',
          rules: {
           menuName: [
             { required: true, message: '请输入菜单名称', trigger: 'blur' },
@@ -126,13 +172,9 @@
         form: {
           menuName: '',
           icon: '',
-          comName:''
-          // date1: '',
-          // date2: '',
-          // delivery: false,
-          // type: [],
-          // resource: '',
-          // desc: ''
+          comName:'',
+          parentId:'',
+          id:''
         },
         formLabelWidth: '120px',
         dialogFormVisible:false,
@@ -140,13 +182,13 @@
         data5: JSON.parse(JSON.stringify(data)),
          defaultProps: {
           children: 'children',
-          label: 'label', 
+          label: 'menuName', 
         }
       }
     },
     watch: {
       filterText(val) {
-        this.$refs.tree2.filter(val);
+        this.$refs.tree.filter(val);
       }
     },
 
@@ -155,7 +197,11 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             this.dialogFormVisible = false
-            alert('submit!');
+            const FORM = JSON.parse(JSON.stringify(this.form))
+            FORM.id= id++;
+            // console.log(this.node)
+            this.$refs.tree.append(FORM,this.node)
+            this.$refs[formName].resetFields();
           } else {
             console.log('error submit!!');
             return false;
@@ -167,33 +213,41 @@
       },
        filterNode(value, data) {
         if (!value) return true;
-        return data.label.indexOf(value) !== -1;
+        return data.menuName.indexOf(value) !== -1;
       },
       append(node,data) {
-        const newChild = { id: id++, label: 'testtest', children: [] };  
-      //  this.dialogFormVisible = true
+        const newChild = { id: id++, label: 'testtest'};  
+       this.dialogFormVisible = true
+       this.node  =  node;
+      this.form.id = data.id;
 
         // this.$refs.tree.append(newChild,node)
           
       },
 
       remove(node, data) {
-        console.log(data)
-        if (data.children) {
+        if (data.children&&data.children.length>0) {
              this.$message({
                 message: '不可直删除有儿子的节点',
                 type: 'warning'
               });
         }else{
-          console.log(data)
-         this.$confirm('检测到删除《'+data.label+'》节点？', '确认删除', {
+     
+         this.$confirm('检测到删除<'+data.menuName+'>节点？', '确认删除', {
           distinguishCancelAndClose: true,
           confirmButtonText: '确认',
           cancelButtonText: '取消'
         })
           .then(() => {
             // 删除节点
-            this.$refs.tree.remove(node)
+        this.$refs.tree.remove(node)
+        this.$notify({
+          title: '删除<'+data.menuName+'>',
+          message: '删除<'+data.menuName+'>节点,成功',
+          type: 'success'
+        });
+
+
 
             
               // 删除节点
@@ -215,6 +269,7 @@
     margin-left: 10px;
     i {
       font-size: 16px;
+      font-weight: 800;
     }
   }
 
