@@ -1,17 +1,13 @@
 <template>
-  <div class="hello">
-    <h1>权限管理</h1>
-      
-
-
-
+  <div class="permission">
  <div class="block">
-    <p>使用 scoped slot</p>
-    <el-input
-  placeholder="输入关键字进行过滤"
-  v-model="filterText">
-</el-input>
-
+<div class="treeHeader">
+    <el-button type="primary" size="mini"  @click.native = "append('d','d','0')"     icon="el-icon-plus">添加Root节点</el-button>
+      <el-input
+      placeholder="输入关键字进行过滤"
+      v-model="filterText">
+    </el-input>
+</div>
     <el-tree
       :data="data5"
       show-checkbox
@@ -19,8 +15,8 @@
       :props="defaultProps"
       :expand-on-click-node="false"
       :filter-node-method="filterNode"
-     
       accordion
+      default-expand-all
       ref="tree">
       >
       <span class="custom-tree-node" slot-scope="{ node, data }">
@@ -71,10 +67,8 @@
 
   export default {
     data() {
-      const data = [];
-
-      
-let authList = [
+      return {
+        authList : [
   {
       id:"1",
       parentId:"0",
@@ -136,24 +130,7 @@ let authList = [
       comName:'xxx',
       icon: '',
   },
-]
-function authTree(list,nodeId,targetArr){
- if(!targetArr){return}
-  list.forEach((element,i) => {
-  if(element.parentId ==  nodeId){
-    element.children = [];
-    targetArr.push(element)
-    authTree(list,element.id,element.children)
-    }
-    });
-}
-
-authTree(JSON.parse(JSON.stringify(authList)),0,data)
-
-
-
-      return {
-        node:'',
+],
          rules: {
           menuName: [
             { required: true, message: '请输入菜单名称', trigger: 'blur' },
@@ -179,7 +156,7 @@ authTree(JSON.parse(JSON.stringify(authList)),0,data)
         formLabelWidth: '120px',
         dialogFormVisible:false,
         filterText: '',
-        data5: JSON.parse(JSON.stringify(data)),
+        // data5: JSON.parse(JSON.stringify(data)),
          defaultProps: {
           children: 'children',
           label: 'menuName', 
@@ -191,17 +168,38 @@ authTree(JSON.parse(JSON.stringify(authList)),0,data)
         this.$refs.tree.filter(val);
       }
     },
-
+computed:{
+  data5:function(){
+    console.log('authList 改变了')
+      let data =   JSON.parse(JSON.stringify(this.authList))
+      let targetArr = []
+    function authTree(list,nodeId,targetArr){
+      if(!targetArr){return}
+        list.forEach((element,i) => {
+        if(element.parentId ==  nodeId){
+          element.children = [];
+          targetArr.push(element)
+          authTree(list,element.id,element.children)
+          }
+          });
+    }
+    authTree(JSON.parse(JSON.stringify(data)),0,targetArr)
+    return  targetArr
+  }
+},
     methods: {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
+           
             this.dialogFormVisible = false
-            const FORM = JSON.parse(JSON.stringify(this.form))
-            FORM.id= id++;
-            // console.log(this.node)
-            this.$refs.tree.append(FORM,this.node)
-            this.$refs[formName].resetFields();
+            let FORM = JSON.parse(JSON.stringify(this.form))
+              FORM.id =   id ++
+              console.log(FORM)
+            // this.$refs.tree.append(FORM,this.node)
+            this.authList.push(FORM)
+  
+            // this.$refs[formName].resetFields();
           } else {
             console.log('error submit!!');
             return false;
@@ -215,14 +213,10 @@ authTree(JSON.parse(JSON.stringify(authList)),0,data)
         if (!value) return true;
         return data.menuName.indexOf(value) !== -1;
       },
-      append(node,data) {
-        const newChild = { id: id++, label: 'testtest'};  
-       this.dialogFormVisible = true
-       this.node  =  node;
-      this.form.id = data.id;
-
-        // this.$refs.tree.append(newChild,node)
-          
+      append(node,data,parentId) {  
+      this.dialogFormVisible = true;
+      alert( data.id)
+       this.form.parentId = parentId  ||   data.id;// 把当前的 id 也就是将要插入的
       },
 
       remove(node, data) {
@@ -265,12 +259,25 @@ authTree(JSON.parse(JSON.stringify(authList)),0,data)
 
 </script>
 <style scoped lang = 'less'>
+.permission{
+    .treeHeader{
+      display: flex;
+      padding: 10px 0;
+      flex-direction:column; 
+      justify-content: space-between;
+      width: 330px;
+      height: 100px;
+      .el-button {
+        width: 120px;
+      }
+    }
   .edit {
     margin-left: 10px;
     i {
       font-size: 16px;
       font-weight: 800;
     }
+  }
   }
 
 </style>
