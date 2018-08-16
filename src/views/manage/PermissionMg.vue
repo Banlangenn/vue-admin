@@ -62,9 +62,7 @@
 </template>
 
 <script>
-
  let id = 1000;
-
   export default {
     data() {
       return {
