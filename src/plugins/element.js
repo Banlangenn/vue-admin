@@ -2,7 +2,7 @@
  * @Author:douya 
  * @Date: 2018-08-12 16:06:50 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-08-15 17:16:54
+ * @Last Modified time: 2018-08-17 16:20:03
  * @Description: 用哪个打开哪个   import  和 use
  */
 // import 'element-ui/lib/theme-chalk/index.css';
@@ -38,7 +38,7 @@ import {
     //   DatePicker,
     //   TimeSelect,
     //   TimePicker,
-    //   Popover,
+      Popover,
     //   Tooltip,
     // Breadcrumb,
     // BreadcrumbItem,
@@ -107,7 +107,7 @@ Vue.use(Button);
 // Vue.use(DatePicker);
 // Vue.use(TimeSelect);
 // Vue.use(TimePicker);
-// Vue.use(Popover);
+Vue.use(Popover);
 // Vue.use(Tooltip);
 // Vue.use(Breadcrumb);
 // Vue.use(BreadcrumbItem);
