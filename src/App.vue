@@ -8,15 +8,70 @@
       </div>
 </template>
 <style >
+/*公共样式--开始*/
+html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select {
+    margin: 0;
+    padding: 0;
+}
+*{box-sizing: border-box;}
+html, body {
+    min-height: 100%;
+}
+h1, h2, h3, h4, h5, h6{font-weight:normal;}
+ul,ol {
+    list-style: none;
+}
+
+img {
+    border: none;
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+    color: #232323;
+}
+
+
+input, textarea {
+    outline: none;
+    border: none;
+}
+
+textarea {
+    resize: none;
+    overflow: auto;
+}
+
+.tl {
+    text-align: left;
+}
+
+.tc {
+    text-align: center
+}
+
+.tr {
+    text-align: right;
+}
+
+.ellipse {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*公共样式--开始*/
+
+
+
+
 	html,body,#app,.app-wrapper {
 		height:100%;
 		width:100%;
   }
   
-  * {
-      padding: 0;
-      margin: 0;
-  }
+
 
    .el-menu-item  i[class^=iconfont-icon-] {
     vertical-align: middle;

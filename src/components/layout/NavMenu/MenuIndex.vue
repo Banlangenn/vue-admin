@@ -1,6 +1,5 @@
 <template>
-  <div id="navMenu-wrap"  :class="{ collapsed:isCollapse }">
-  <!-- <button  style= "height:60px" @click = "isCollapsnFn">切换</button> -->
+  <div id="navMenu-wrap" >
 <el-menu 
       :default-active = this.$route.fullPath
       :collapse = this.$store.state.isCollapse
@@ -32,15 +31,8 @@
 
 <script>
 import MenuItem from './MenuItem'
-import { mapGetters } from 'vuex'
 export default {
   name: "navMenu",
-  data(){
-    return {
-      data:'首頁',
-      isCollapse:false
-    }
-  },
   components: { MenuItem },
   created(){
       console.log('==========================')
@@ -69,12 +61,6 @@ export default {
     //  this.$router.push('/'+indexPath.join('/'))
 
     },
-    isCollapsnFn(){
-      // this.$store.commit('setPermission',)
-      console.log(this.$route.fullPath)
-      this.isCollapse = !this.isCollapse;
-      // this.menuWidth =  this.isCollapse ? 65 : 205;
-    }
   }
   }
 </script>
@@ -105,7 +91,6 @@ export default {
 <style scoped lange='less'>
    #navMenu-wrap {
     height: 100%;
-    margin-top: 60px;
     display: flex;
     flex-direction: column;
     .el-menu {

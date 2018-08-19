@@ -28,6 +28,7 @@ function initRouter(list1, bathpath0) {
         if (list2.children.length < 1) {
             list2.path = '/'+basePath;
             list2.component = commentsMap[list2.component];
+            list2.meta = {title:list2.menuName,icon:list2.icon}
             lists.push(list2)
             // delete list.children
             // delete list.icon

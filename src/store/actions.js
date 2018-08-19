@@ -48,7 +48,6 @@ function initRouter(list1, bathpath0) {
 	rest2.apply(this, Array.prototype.slice.apply(arguments))
 	function rest2(list, basePath) {
 		if (!list.children) {
-			// console.log(basePath+'发现一个重点')
 			list.path = basePath
 			lists.push(list)
 			return;
@@ -57,6 +56,5 @@ function initRouter(list1, bathpath0) {
 			rest2(element, basePath + '/' + element.path)
 		});
 	}
-	console.log(lists)
 	return lists;
 }
