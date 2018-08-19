@@ -1,9 +1,9 @@
 <template>
   <div id="navMenu-wrap"  :class="{ collapsed:isCollapse }">
-  <button @click = "isCollapsnFn">切换</button>
+  <!-- <button  style= "height:60px" @click = "isCollapsnFn">切换</button> -->
 <el-menu 
       :default-active = this.$route.fullPath
-      :collapse = isCollapse
+      :collapse = this.$store.state.isCollapse
       :collapse-transition = true
       class="el-menu-vertical-admin"
       @open="handleOpen"
@@ -11,14 +11,18 @@
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b"
-      :router= true
       :unique-opened= true
+      @select = "handleSelect"
+      :router = true
       >
 
 
-
+    <el-menu-item index="/"  v-if="true">
+          <i class="iconfont-icon-home"></i>
+          <span   slot="title">首页</span>
+        </el-menu-item>
  
-    <MenuItem v-for="route of this.$store.state.permission"  :key="route.name" :item="route"     :base-path="route.path"  />  
+    <MenuItem v-for="route of this.$store.state.permission"  :key="route.id" :item="route"     :base-path="'/'+route.path"  />  
 
 
 
@@ -28,6 +32,7 @@
 
 <script>
 import MenuItem from './MenuItem'
+import { mapGetters } from 'vuex'
 export default {
   name: "navMenu",
   data(){
@@ -38,24 +43,31 @@ export default {
   },
   components: { MenuItem },
   created(){
-      console.log('this.$store.state')
-      console.log(this.$store.state)
-      console.log('this.$route.state')
-      console.log(this.$route)
+      console.log('==========================')
+      console.log(this.$store.state.permission)
+      console.log(this.$store.state.isCollapse)
+      // console.log(this.$route)
   },
-  // computed: {
-    
-  // },
+   computed: {
+  // 使用对象展开运算符将 getter 混入 computed 对象中
+  },
   methods: {
     //  ...mapMutations([
     //   'setPermission'
     // ]),
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
-      this.data = keyPath +'---'+keyPath 
+      
+      // this.$router.push(key)
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
+    },
+    handleSelect(index, indexPath){
+    //   console.log('oooooooooooooooooooooooooooo')
+    //   this.$router.push(indexPath)
+    //  this.$router.push('/'+indexPath.join('/'))
+
     },
     isCollapsnFn(){
       // this.$store.commit('setPermission',)
@@ -93,11 +105,13 @@ export default {
 <style scoped lange='less'>
    #navMenu-wrap {
     height: 100%;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     .el-menu {
       flex: 1;
     }
+
   } 
 
 

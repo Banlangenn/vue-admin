@@ -1,8 +1,8 @@
 /*
  * @Author:douya 
  * @Date: 2018-08-12 01:05:13 
- * @Last Modified by:   LJW
- * @Last Modified time: 2018-08-15 09:44:55
+ * @Last Modified by: xiaoliu
+ * @Last Modified time: 2018-08-19 00:53:26
  * @Description: 我们组装模块并导出 store 的地方 
  * 1.需要存在 本地的放在外边 跟信息 好取 好拿 好存 
  * 2.需要配置vuex 组件 plugins
@@ -20,6 +20,7 @@ Vue.use(Vuex);
 
 import mutations from './mutations'
 import actions from './actions'
+import getters from './getters'
 const debug = process.env.NODE_ENV !== 'production'
 
 
@@ -50,7 +51,6 @@ plugins.push(createPersistedState({
                   pre[temp]= state[temp]
                   return pre
                 },{})
-
   } ,
   filter: (mutation) => (
     // mutation.type === 'setUser' ||
@@ -66,7 +66,9 @@ plugins.push(createPersistedState({
 const initstate = {
   userinfo:{},
   permission:[],
-  routerArray:[]
+  routerArray:[],
+  isCollapse:false,
+  testArr:[]
 }
 
 
@@ -79,6 +81,7 @@ export default new Vuex.Store({
   state: initstate,// 根状态
   mutations,// 根状态
   actions,// 根状态
+  getters,// 根状态
   strict: debug,
   plugins: plugins
 });

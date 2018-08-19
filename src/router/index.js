@@ -18,12 +18,6 @@ export default new Router({
                     component: () =>
                         import ( /* webpackChunkName: "about" */ "@/views/others/HelloWorld.vue"),
                     meta: { icon: 'el-icon-location', title: 'dsds' }
-                },
-                {
-                    path: "/helloWorld",
-                    component: () =>
-                        import ( /* webpackChunkName: "HelloWorld" */ "@/views/others/HelloWorld.vue"),
-                    meta: { icon: 'el-icon-location', title: 'mdkls' }
                 }
             ]
         },

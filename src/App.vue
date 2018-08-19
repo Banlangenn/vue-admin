@@ -18,6 +18,13 @@
       margin: 0;
   }
 
+   .el-menu-item  i[class^=iconfont-icon-] {
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 24px;
+    text-align: center;
+    font-size: 18px;
+}
 /* Make clicks pass-through */
 #nprogress {
   pointer-events: none;

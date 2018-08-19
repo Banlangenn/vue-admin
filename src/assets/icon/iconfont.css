@@ -1,0 +1,37 @@
+
+@font-face {font-family: "iconfont";
+
+  /* 目前来讲 强制使用 chrome  或者ie9 以上 */
+ /* src: url('iconfont.eot?t=1534609183929');  IE9*/
+/*  src: url('iconfont.eot?t=1534609183929#iefix') format('embedded-opentype'), /* IE6-IE8 */
+/* url('data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAATIAAsAAAAAB1wAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFY8dkjEY21hcAAAAYAAAABUAAABhmeS0M1nbHlmAAAB1AAAAPoAAAE8jTHlhWhlYWQAAALQAAAALwAAADYSXBRIaGhlYQAAAwAAAAAcAAAAJAfeA4RobXR4AAADHAAAAAwAAAAMDAAAAGxvY2EAAAMoAAAACAAAAAgASACebWF4cAAAAzAAAAAfAAAAIAEZADpuYW1lAAADUAAAAUUAAAJtPlT+fXBvc3QAAASYAAAALgAAAD80xLHOeJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkYWCcwMDKwMHUyXSGgYGhH0IzvmYwYuRgYGBiYGVmwAoC0lxTGByeMTy7xNzwv4EhhrmBoQEozAiSAwDsuwy1eJztkMERgCAMBPdAeTgW4sOCfFk0RdAGHkG78GY2l1zgE2AFsjnNAroRQ5dTRZ7ZIl/iTbGL1Gi1d/jcknfFnsY/FX7tUY93SuNak+jrBD2Z6hCOeJxtjrFKw1AUhs/fk9yj4g3ctCYQcEgkBREjommWUqq7T9AgxLHP4ODg4uAi6FO4uoesDk4uUsHJQV/BXk1BJzt8fPzf9FOH6PuZ3/iYYtohgkr2YHpK4gz5oOgXRlTSPywwQjgIQgQ9dz9DomTLHPCLGFV29fxCdwFGqYxWqF1PxHNRK3vrHp2Onc4HSpGJHWkf8LViJbifiDaC2mFmOHa84p9kw2FmP2m9/fPID5wTk6I18singCLabP+ltE27RGmcx2louJXZiHMs/MuSjCe828ieNw1Pv+54aqPF/mNZv65uGlzOryperSr7WtnZmZ39b/QDrjJR6QAAeJxjYGRgYADilHTDtfH8Nl8ZuFkYQOD6vAx5BP3/NAsDsxOQy8HABBIFAA/zCW8AeJxjYGRgYG7438AQw8IAAkCSkQEVMAMARwkCbAQAAAAEAAAABAAAAAAAAAAASACeeJxjYGRgYGBm0GPgYQABJiDmAkIGhv9gPgMADi0BVAB4nGWPTU7DMBCFX/oHpBKqqGCH5AViASj9EatuWFRq911036ZOmyqJI8et1ANwHo7ACTgC3IA78EgnmzaWx9+8eWNPANzgBx6O3y33kT1cMjtyDRe4F65TfxBukF+Em2jjVbhF/U3YxzOmwm10YXmD17hi9oR3YQ8dfAjXcI1P4Tr1L+EG+Vu4iTv8CrfQ8erCPuZeV7iNRy/2x1YvnF6p5UHFockikzm/gple75KFrdLqnGtbxCZTg6BfSVOdaVvdU+zXQ+ciFVmTqgmrOkmMyq3Z6tAFG+fyUa8XiR6EJuVYY/62xgKOcQWFJQ6MMUIYZIjK6Og7VWb0r7FDwl57Vj3N53RbFNT/c4UBAvTPXFO6stJ5Ok+BPV8bUnV0K27LnpQ0kV7NSRKyQl7WtlRC6gE2ZVeOEXpc0Yk/KGdI/wAJWm7IAAAAeJxjYGKAAC4G7ICZkYmRmZGFgSUjPzeVLzk/JyexoDhVtygzPaOEgQEAW4oHdQAA') format('woff'), */
+src: url('iconfont.ttf?t=1534609183929') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+/*  url('iconfont.svg?t=1534609183929#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+/* .iconfont {
+  font-family:"iconfont" !important;
+  font-size:18px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} */
+[class*="iconfont-icon-"], [class^=iconfont-icon-] {
+  font-family:"iconfont" !important;
+  speak: none;
+  font-size:18px;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconfont-icon-home:before { content: "\e6d2"; }
+
+.iconfont-icon-collapse-right:before { content: "\e600"; }
+

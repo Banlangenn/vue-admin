@@ -2,13 +2,13 @@
   <div class="permission">
  <div class="block">
 <div class="treeHeader">
-    <div style="width:500;display:flex; ">
+    <div style="display:flex;    justify-content: space-between; ">
       <el-button type="primary" size="mini"  @click.native = "append('d',{id:0})"     icon="el-icon-plus">添加Root节点</el-button>
    <el-popover
-  placement="right"
+  placement="bottom"
   width="400"
-  trigger="click"
-   content="component：因为vue-router，嵌套规则限制，componen只有root和尾部节点有用,中间并没有什么卵用 "
+  trigger="hover"
+   content="component：因为vue-router，嵌套规则限制，componen只有root和尾部节点有用,中间并没有什么卵用,可以不填"
       >
 
   <el-button slot="reference" size="mini"  type="primary"   >一些必要的描述</el-button>
@@ -19,9 +19,9 @@
       v-model="filterText">
     </el-input>
 </div>
+<div class="custom-tree-node ">
     <el-tree
       :data="data5"
-
       node-key="id"
       :props="defaultProps"
       :expand-on-click-node="false"
@@ -54,11 +54,12 @@
       </span>
     </el-tree>
   </div>
+  </div>
 
 <el-dialog  :title="title" :visible.sync="dialogFormVisible"  width='30%'>
   <el-form label-position="right" label-width="90px" :rules="rules"    ref = "ruleForm"  :model="form"  >
   <el-form-item label="menuName"  prop="menuName">
-    <el-input v-model="form.menuName"  placeholder=`请输入内容`></el-input>
+    <el-input v-model="form.menuName"  placeholder='请输入内容'></el-input>
   </el-form-item>
   <el-form-item label="icon" prop="icon">
     <el-input v-model="form.icon"   placeholder="请输入内容"></el-input>
@@ -67,7 +68,7 @@
     <el-input v-model="form.path"  placeholder="请输入内容"></el-input>
   </el-form-item>
   <el-form-item label="component" prop="component">
-    <el-input v-model="form.component"  placeholder="末尾节点为必填"></el-input>
+    <el-input v-model="form.component"  placeholder="请输入内容"></el-input>
   </el-form-item>
 </el-form>
   <div slot="footer" class="dialog-footer">
@@ -136,7 +137,7 @@
      menuName:'一级1-2',
       component:'HelloWorld',
       icon: 'el-icon-setting',
-       path:'xxx',
+       path:'one',
   },
     {
       id:"22",
@@ -144,7 +145,7 @@
      menuName:'一级2-1',
       component:'PermissionMg',
       icon: 'el-icon-setting',
-       path:'xxx',
+       path:'two',
   },
     {
       id:"19  ",
@@ -152,7 +153,7 @@
      menuName:'一级2-2',
       component:'xxx',
       icon: 'el-icon-setting',
-       path:'xxx',
+       path:'three',
   },
     {
       id:"23",
@@ -160,7 +161,7 @@
      menuName:'一级1-3',
       component:'About',
       icon: 'el-icon-setting',
-       path:'xxx',
+       path:'four',
   },
     {
       id:"24",
@@ -168,7 +169,7 @@
      menuName:'一级1-4',
       component:'HelloWorld',
       icon: 'el-icon-setting',
-       path:'xxx',
+       path:'five',
   },
 ],
          rules: {
@@ -186,7 +187,7 @@
           ],
             path: [
             { required: true, message: '请输入路由路径', trigger: 'blur' },
-            { min: 3, max: 10, message: '长度在 3 到 10个字符', trigger: 'blur' }
+            { min: 3, max: 30, message: '长度在 3 到 10个字符', trigger: 'blur' }
           ],
         
         },
@@ -374,6 +375,7 @@ computed:{
 </script>
 <style scoped lang = 'less'>
 .permission{
+  
     .treeHeader{
       display: flex;
       padding: 10px 0;
