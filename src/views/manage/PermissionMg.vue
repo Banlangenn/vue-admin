@@ -8,7 +8,7 @@
   placement="bottom"
   width="400"
   trigger="hover"
-   content="component：因为vue-router，嵌套规则限制，componen只有root和尾部节点有用,中间并没有什么卵用,可以不填"
+   content="component：因为vue-router，嵌套规则限制，component只有root和尾部节点有用,中间并没有什么卵用,可以不填"
       >
 
   <el-button slot="reference" size="mini"  type="primary"   >一些必要的描述</el-button>

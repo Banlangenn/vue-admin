@@ -70,8 +70,21 @@ textarea {
     white-space: nowrap;
 }
 
-/*公共样式--开始*/
+/*公共样式--结束*/
 
+
+/*tab提示*/
+.tabTooltip {
+  display: block !important ;
+  top:100px;
+  left: 100px;
+ height: 23px;
+  line-height: 0 !important ;
+  box-shadow: 5px 5px 5px #888888;
+  /* border: none */
+  /* background-color: #eee */
+
+}
 
 
 

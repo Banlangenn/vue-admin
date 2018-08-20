@@ -1,7 +1,8 @@
 <template>
 
   <div id="navMenu-wrap" >
-   <el-scrollbar>
+   <el-scrollbar> 
+       <!-- </el-scrollbar> -->
 <el-menu 
       v-loading="loading"
       element-loading-text="拼命加载中"
@@ -63,25 +64,6 @@ export default {
         return  false
     }
   }
-  },
-  methods: {
-    //  ...mapMutations([
-    //   'setPermission'
-    // ]),
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-      
-      // this.$router.push(key)
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleSelect(index, indexPath){
-    //   console.log('oooooooooooooooooooooooooooo')
-    //   this.$router.push(indexPath)
-    //  this.$router.push('/'+indexPath.join('/'))
-
-    },
   }
   }
 </script>
@@ -91,18 +73,17 @@ export default {
   .el-menu-vertical-admin:not(.el-menu--collapse) {
     width: 230px;
     min-height: 400px;
-    /*height: 100%*/
-
   }
   .is-dark {
         background: #303133;
         color: #fff;
 }
 #navMenu-wrap {
+   border-right: solid 1px #e6e6e6;
       height: 100%;
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    background-color: #545c64;
   .el-loading-mask {
         top:50px;
       }
@@ -115,36 +96,16 @@ export default {
 .el-scrollbar {
     height: 100%;
 }
-.el-scrollbar__wrap {
+.el-scrollbar__wrap ,.el-scrollbar__view{
   overflow-x: hidden;
 }
     .el-menu {
       flex: 1;
+      border: none;
     }
 
 
-      /*定义滚动条高宽及背景
- 高宽分别对应横竖滚动条的尺寸*/
 
-// &::-webkit-scrollbar{
-//     width:6px;
-//     height:6px;
-//     background-color:#F5F5F5;
-// }
-/*定义滚动条轨道
- 内阴影+圆角*/
-// &::-webkit-scrollbar-track{
-//     -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
-//     border-radius:10px;
-//     background-color:#F5F5F5;
-// }
-/*定义滑块
- 内阴影+圆角*/
-// &::-webkit-scrollbar-thumb{
-//     border-radius:10px;
-//     -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);
-//     background-color:#555;
-// }
 }
 
 </style>
