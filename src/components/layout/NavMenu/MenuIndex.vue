@@ -12,13 +12,10 @@
       :collapse = this.$store.state.isCollapse
       :collapse-transition = true
       class="el-menu-vertical-admin"
-      @open="handleOpen"
-      @close="handleClose"
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b"
       :unique-opened= true
-      @select = "handleSelect"
       :router = true
       >
 
@@ -40,18 +37,6 @@ import MenuItem from './MenuItem'
 export default {
   name: "navMenu",
   components: { MenuItem },
-  // data(){
-  //   return {
-  //     loading: true
-  //   }
-  // },
-  created(){
-      console.log('==========================')
-      console.log(this.$store.state.permission)
-      console.log(this.$store.state.isCollapse)
- 
-      // console.log(this.$route)
-  },
    computed: {
   // 使用对象展开运算符将 getter 混入 computed 对象中
   loading(){
