@@ -17,7 +17,7 @@ export default new Router({
                     path: "/",
                     component: () =>
                         import ( /* webpackChunkName: "about" */ "@/views/others/HelloWorld.vue"),
-                    meta: { icon: 'el-icon-location', title: 'dsds' }
+                    meta: { icon: 'iconfont-icon-home', title: '首页' }
                 }
             ]
         },

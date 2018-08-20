@@ -1,5 +1,5 @@
 <template>
-        <el-menu-item :index="basePath"  v-if="item.children.length < 1">
+        <el-menu-item :index="basePath"  v-if="item.children.length < 1" class="ellipse">
           <i :class="item.icon"></i>
           <span v-if="item.menuName" slot="title">{{item.menuName}}</span>
         </el-menu-item>

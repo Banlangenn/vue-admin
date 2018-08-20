@@ -9,8 +9,6 @@
         width:40px;
         padding-bottom:10px;
         cursor: pointer;
-        
-        
         ">
       <span @click = "changeCollapsn">
      <i class="iconfont-icon-collapse-right"
@@ -24,13 +22,13 @@
       </div>
 <!-- 随时可以把我干掉   -- 不会影响别的-->
    <ul class="tabListWp">
-      <router-link   :to="tabData.path" tag="li" v-for="(tabData,index) of tabsData"    class="tc tab"> 
+      <router-link   :to="tabData.path" tag="li" v-for="(tabData,index) of tabsData"    :key = 'tabData.path'   class="tc tab"> 
        <div class="tab-bg" :class="crrIndex == index ? 'tab-active':'' "></div>
        <div class="tab-content ellipse "> 
          <i :class="tabData.meta.icon"></i>
           {{tabData.meta.title}}
          </div>
-          <i class="el-icon-close close"></i>
+          <i class="el-icon-close close" @click.stop='removeTab(index)'></i>
        </router-link>
    
    </ul>
@@ -42,7 +40,6 @@ import { mapMutations } from "vuex";
   export default {
     data() {
       return {
-        // currentDate: new Date(),
         tabsData:[],
         crrIndex:-1,
       }
@@ -72,6 +69,9 @@ import { mapMutations } from "vuex";
       }
       //  1. icon和 title 只有放在== meta 中才能访问
       //  2. 缓存 使用 放在 seesloastore tabs
+    },
+    removeTab(index){
+       this.tabsData.splice(index,1)
     }
   }
   }
@@ -83,12 +83,12 @@ import { mapMutations } from "vuex";
     background-color: #ccc;
     height: 50px;
      position: relative;
+      cursor: pointer;
     .tabListWp {
-      
+        width:calc(~"100% - 40px");
       margin-left: 40px;
       display: flex;
        height: 50px;
-       width: 100%;
         position: absolute;
         z-index: 1;
         padding: 0 15px; 
@@ -99,7 +99,6 @@ import { mapMutations } from "vuex";
              margin-left: -17px;
         }
        li {
-         cursor: pointer;
          width: 200px;
         line-height: 30px;
          padding: 0 30px;
@@ -121,9 +120,15 @@ import { mapMutations } from "vuex";
          .close {
           position: absolute;
           right:15px;
-          top:50%;
-          transform:translateY(-50%);
+          top:25%;
+          font-weight: 700;
+           transform:rotate(0deg) scale(1) ;
+           transition:transform .3s ease-in-out;
+          &:hover{
+              transform:rotate(90deg) scale(1.2) ;
+          }
          }
+         
          .tab-active {
           z-index: -1;
           border-bottom: 30px solid rgb(242,242,242);

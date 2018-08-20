@@ -7,6 +7,15 @@
         </transition>
       </div>
 </template>
+<script>
+export default {
+    mounted(){
+         // 添加 -- 路由
+              	this.$router.addRoutes(this.$store.getters.routerArray2) 
+    }
+}
+</script>
+
 <style >
 /*公共样式--开始*/
 html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select {

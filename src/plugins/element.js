@@ -2,13 +2,13 @@
  * @Author:douya 
  * @Date: 2018-08-12 16:06:50 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-08-17 16:20:03
+ * @Last Modified time: 2018-08-20 12:42:01
  * @Description: 用哪个打开哪个   import  和 use
  */
 // import 'element-ui/lib/theme-chalk/index.css';
 import Vue from 'vue';
 import {
-    // Scrollbar,
+    Scrollbar,
     //   Pagination,
     Dialog,
     //   Autocomplete,
@@ -72,12 +72,12 @@ import {
     Aside,
     Main,
     //   Footer,
-    //   Loading,
+      Loading,
     MessageBox,
     Message,
     Notification
 } from 'element-ui';
-// Vue.use(Scrollbar)
+Vue.use(Scrollbar)
 // Vue.use(Pagination);
 Vue.use(Dialog);
 // Vue.use(Autocomplete);
@@ -141,7 +141,7 @@ Vue.use(Aside);
 Vue.use(Main);
 // Vue.use(Footer);
 
-// Vue.use(Loading.directive);
+Vue.use(Loading.directive);
 
 // Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;

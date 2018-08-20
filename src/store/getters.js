@@ -1,19 +1,16 @@
 
-
-
 import commentsMap from '@/router/comObj'
 
 export default {
     // 权限数据结构
     routerArray2: state => {
+        // 只有 用routerArray2的时候 ==routerArray2 才会走 ，并且会缓存下来，猜测是闭包单例
         let data = JSON.parse(JSON.stringify(state.permission))
         return data.map((item) => {
             item.component = commentsMap[item.component];
             item.children = initRouter(item, item.path)
             return item
         })
-
-
     }
 }
 
