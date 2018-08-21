@@ -75,15 +75,9 @@ textarea {
 
 /*tab提示*/
 .tabTooltip {
-  display: block !important ;
-  top:100px;
-  left: 100px;
  height: 23px;
   line-height: 0 !important ;
   box-shadow: 5px 5px 5px #888888;
-  /* border: none */
-  /* background-color: #eee */
-
 }
 
 
@@ -133,17 +127,9 @@ textarea {
           transform: rotate(3deg) translate(0px, -4px);
 }
 
-
-
-
-
-
-
 .el-header {
   padding: 0 !important; 
 }
-
-
 
 .el-tooltip__popper {
     position: absolute;

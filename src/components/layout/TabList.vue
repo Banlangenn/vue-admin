@@ -3,22 +3,14 @@
   <div class="warp-breadcrum">
 
       <!-- 随时可以把我干掉   -- 不会影响别的   可以考虑弄成个组件-->
-      <div class="tr"  style="
-        border-top: 10px solid #ccc;
-        border-bottom: 10px solid #f2f2f2;
-        width:40px;
-        padding-bottom:10px;
-        cursor: pointer;
-        ">
-      <span @click = "changeCollapsn">
-     <i class="iconfont-icon-collapse-right"
-     :style="{
-        transform:this.$store.state.isCollapse ? 'rotate(180deg)':'rotate(0deg)',
-       transition:'transform .6s ease-in-out',
-       fontSize:'25px',
-       color:'#8f9398',
-     }" />
-     </span>
+      <div class="tc collapse">
+            <span   @click = "changeCollapsn">
+                    <i class="iconfont-icon-collapse-right"
+                    :style="{
+                        transform:this.$store.state.isCollapse ? 'rotate(180deg)':'rotate(0deg)',
+                      transition:'transform .6s ease-in-out',
+                    }" />
+          </span>
       </div>
 <!-- 随时可以把我干掉   -- 不会影响别的-->
    <ul class="tabListWp">
@@ -132,6 +124,21 @@ import { mapMutations } from "vuex";
     height: 50px;
      position: relative;
       cursor: pointer;
+      
+//  切换
+      .collapse {
+        border-top: 10px solid #ccc;
+        border-bottom: 10px solid #f2f2f2;
+        width:40px;
+        line-height: 30px;
+                i{
+                  color: #545c64;
+                  font-size: 20px;
+                &:hover{
+                  color: #7aafe4;
+                }
+                }
+         }
     .tabListWp {
         width:calc(~"100% - 40px");
       margin-left: 40px;
@@ -139,7 +146,7 @@ import { mapMutations } from "vuex";
        height: 50px;
         position: absolute;
         z-index: 1;
-        padding: 0 15px; 
+        padding-right: 15px; 
         overflow: auto;
         border-top: 10px solid #ccc;
         border-bottom: 10px solid #f2f2f2;
@@ -172,11 +179,15 @@ import { mapMutations } from "vuex";
              margin-left: -14px;
         }
        li {
+         color: #545c64;
          width: 200px;
         min-width: 91px;
         line-height: 30px;
          padding: 0 30px;
          position: relative;
+            &:hover{
+                  color: #7aafe4;
+                }
          .tab-bg {
           width:100%;
           height: 0;
