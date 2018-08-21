@@ -13,7 +13,8 @@
           </span>
       </div>
 <!-- 随时可以把我干掉   -- 不会影响别的-->
-   <ul class="tabListWp">
+
+    <transition-group  tag='ul'  class="tabListWp"   name="my2" >
       <router-link  
           :to="tabData.path" 
           tag="li" 
@@ -23,7 +24,6 @@
     > 
 
        <div class="tab-bg" :class="crrIndex == index ? 'tab-active':'' "></div>
-       
        <el-tooltip
         class="item" 
          effect="light"
@@ -40,14 +40,13 @@
      
           <i class="el-icon-close close" @click.stop='removeTab(index)'></i>
        </router-link>
-   </ul>
+          </transition-group>
+
 
   </div>
 </template>
 <script>
-
-
-// draggable  实现拖拽
+// draggable  实现拖拽   t 太丑放弃
 import { mapMutations } from "vuex";
   export default {
     data() {
@@ -115,7 +114,7 @@ import { mapMutations } from "vuex";
    }
   }
 </script>
-<style scoped  lang='less'>
+<style   lang='less'>
 
   .warp-breadcrum {
     display: flex;
@@ -150,9 +149,6 @@ import { mapMutations } from "vuex";
         overflow: auto;
         border-top: 10px solid #ccc;
         border-bottom: 10px solid #f2f2f2;
-        
-
-
       /*定义滚动条高宽及背景
  高宽分别对应横竖滚动条的尺寸*/
 
@@ -226,6 +222,26 @@ import { mapMutations } from "vuex";
        }
     }
   }
+
+    .my2-enter,.my2-leave-to{
+            opacity:  0;/*透明度*/
+            transform: translateY(30px);
+        }
+         /*入场(离场)动画的时间段   */
+         .my2-enter,.my-leave-to{
+            opacity:  0;/*透明度*/
+            transform: translateY(30px);
+        }
+        .my2-enter-active,.my2-leave-active{
+            transition: all 0.3s ease-in-out;
+
+        }
+
+
+        
+    
+
+
 
 
 </style>
