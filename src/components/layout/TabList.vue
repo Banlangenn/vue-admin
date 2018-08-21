@@ -224,7 +224,6 @@ import { mapMutations } from "vuex";
           border-bottom: 30px solid rgb(242,242,242);
          }       
        }
-
     }
   }
 

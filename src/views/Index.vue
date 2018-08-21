@@ -1,8 +1,8 @@
 /*
  * @Author:douya 
  * @Date: 2018-08-12 16:37:57 
- * @Last Modified by: xiaoliu
- * @Last Modified time: 2018-08-19 22:56:20
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2018-08-21 11:05:25
  * @Description: 基础页面 
  */
 <template>    
@@ -11,14 +11,18 @@
   <el-container>
 
 
-    <el-aside style="width:inherit"> 
+    <el-aside style="width:inherit;  box-shadow: 2px 0 6px rgba(0,21,41,.3); "> 
 
 
 
 
       <NavMenu /></el-aside>
     <el-container >
-    <el-header><TabList/></el-header>
+    <el-header  
+    
+    style="box-shadow: 0 2px 4px rgba(0,21,41,.08);height:50px"
+    
+     ><TabList/></el-header>
       <el-main><FrameView/></el-main>
     </el-container>
   </el-container>
@@ -35,3 +39,5 @@ export default {
   },
 };
 </script>
+
+

@@ -64,7 +64,7 @@ export default {
         color: #fff;
 }
 #navMenu-wrap {
-   border-right: solid 1px #e6e6e6;
+  //  border-right: solid 1px #e6e6e6;
       height: 100%;
     display: flex;
     flex-direction: column;
