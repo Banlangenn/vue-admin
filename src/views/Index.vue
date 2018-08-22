@@ -2,7 +2,7 @@
  * @Author:douya 
  * @Date: 2018-08-12 16:37:57 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-08-21 11:05:25
+ * @Last Modified time: 2018-08-22 12:36:46
  * @Description: 基础页面 
  */
 <template>    
@@ -20,7 +20,7 @@
     <el-container >
     <el-header  
     
-    style="box-shadow: 0 2px 4px rgba(0,21,41,.08);height:50px"
+    style="box-shadow: 0 2px 4px rgba(0,21,41,.08);height:42px"
     
      ><TabList/></el-header>
       <el-main><FrameView/></el-main>

@@ -121,14 +121,14 @@ import { mapMutations } from "vuex";
     display: flex;
     align-content: center;
     background-color: #ccc;
-    height: 50px;
+    height: 42px;
      position: relative;
       cursor: pointer;
       
 //  切换
       .collapse {
-        border-top: 10px solid #ccc;
-        border-bottom: 10px solid #f2f2f2;
+        border-top: 5px solid #ccc;
+        border-bottom: 7px solid #f2f2f2;
         width:40px;
         line-height: 30px;
                 i{
@@ -139,17 +139,20 @@ import { mapMutations } from "vuex";
                 }
                 }
          }
+
+
+
     .tabListWp {
         width:calc(~"100% - 40px");
       // margin-left: 40px;
       display: flex;
-       height: 50px;
+       height: 42px;
         // position: absolute;
         z-index: 1;
         // padding-right: 15px; 
         overflow: auto;
-        border-top: 10px solid #ccc;
-        border-bottom: 10px solid #f2f2f2;
+        border-top: 5px solid #ccc;
+        border-bottom: 7px solid #f2f2f2;
       /*定义滚动条高宽及背景
  高宽分别对应横竖滚动条的尺寸*/
 &::-webkit-scrollbar{
