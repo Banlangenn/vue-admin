@@ -1,13 +1,14 @@
 <template>
 
-  <div id="navMenu-wrap" >
+  <div id="navMenu-wrap"    
+      element-loading-background="rgba(0, 0, 0, .1)"  
+    v-loading="loading"
+      element-loading-text="拼命加载中"
+    element-loading-spinner="el-icon-loading">
    <el-scrollbar> 
        <!-- </el-scrollbar> -->
 <el-menu 
-      v-loading="loading"
-      element-loading-text="拼命加载中"
-    element-loading-spinner="el-icon-loading"
-    element-loading-background="rgba(0, 0, 0, .1)"
+
       :default-active = this.$route.fullPath
       :collapse = this.$store.state.isCollapse
       :collapse-transition = true

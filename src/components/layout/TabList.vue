@@ -14,12 +14,11 @@
       </div>
 <!-- 随时可以把我干掉   -- 不会影响别的-->
 
-    <transition-group  tag='ul'  class="tabListWp "   name="my"  >
+    <transition-group  tag='ul'  class="tabListWp "   name="list-complete"  >
+      <li   v-for = "(tabData,index) of tabsData"    :key = 'tabData.path'   class="list-complete-item" >
               <router-link  
                   :to="tabData.path" 
-                  tag="li" 
-                  v-for="(tabData,index) of tabsData"    
-                  :key = 'tabData.path'  
+                  tag="div" 
                   class="tc tab "
             > 
        <div class="tab-bg" :class="crrIndex == index ? 'tab-active':'' "></div>
@@ -39,6 +38,7 @@
      
           <i class="el-icon-close close" @click.stop='removeTab(index)'></i>
        </router-link>
+             </li>
           </transition-group>
 
 
@@ -150,7 +150,7 @@ import { mapMutations } from "vuex";
         // position: absolute;
         z-index: 1;
         // padding-right: 15px; 
-        overflow: auto;
+        // overflow: auto;
         border-top: 5px solid #ccc;
         border-bottom: 7px solid #f2f2f2;
       /*定义滚动条高宽及背景
@@ -177,10 +177,12 @@ import { mapMutations } from "vuex";
         li:not(:first-child) {
              margin-left: -14px;
         }
-       li {
+        li {
+              width: 200px;
+                min-width: 92px;
+        }
+       .tab {
          color: #545c64;
-         width: 200px;
-        min-width: 91px;
         line-height: 30px;
          padding: 0 30px;
          position: relative;// 为什么要用 relative; bg要定位， 取消按钮 要定位
@@ -199,8 +201,10 @@ import { mapMutations } from "vuex";
           border-right: 15px solid transparent;
          }
     
-         .tab-conten {
-           padding:  0 15px;
+         .tab-content {
+           i{
+             font-size: 18px;
+           }
          }
          .close {
           position: absolute;
@@ -238,7 +242,22 @@ import { mapMutations } from "vuex";
         }
 
 
-        
+
+          .list-complete-item {
+          transition: all .4s ease-in-out;
+            /* display: inline-block; */
+            /* margin-right: 10px; */
+          }
+         .list-complete-leave-to, .list-complete-enter
+          /* .list-complete-leave-active for below version 2.1.8 */ {
+            opacity: 0;
+            transform: translateX(-50px);
+     
+          }
+       
+          .list-complete-leave-active {
+            position: absolute;
+          }
     
 
 

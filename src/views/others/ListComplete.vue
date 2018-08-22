@@ -45,9 +45,9 @@ export default {
   /* margin-right: 10px; */
 }
 .list-complete-enter, .list-complete-leave-to
-/* .list-complete-leave-active for below version 2.1.8 */ {
+{
   opacity: 0;
-  transform: translateY(30px);
+  transform: translate3d(0,0,0);
 }
 .list-complete-leave-active {
   position: absolute;

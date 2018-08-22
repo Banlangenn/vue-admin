@@ -76,7 +76,7 @@ const routerObj2 = [
 		parentId:"0",
 		menuName:'测试-1',
 		component:'Index',
-		icon: 'el-icon-setting',
+		icon: 'iconfont-icon-home',
 		 path:'helloWorld',
 	},
 	{
@@ -92,7 +92,7 @@ const routerObj2 = [
 		parentId:"10",
 	menuName:'一级1-1-1测试字数边长',
 		component:'About',
-		icon: 'el-icon-setting',
+		icon: 'iconfont-icon-collapse-right',
 		path:'about',
 	},
 	
@@ -109,7 +109,7 @@ const routerObj2 = [
 		parentId:"2",
 	   menuName:'一级2-1',
 		component:'PermissionMg',
-		icon: 'el-icon-setting',
+		icon: 'iconfont-icon-home',
 		 path:'two',
 	},
 	  {
@@ -125,7 +125,7 @@ const routerObj2 = [
 		parentId:"1",
 	   menuName:'一级1-3',
 		component:'About',
-		icon: 'el-icon-setting',
+		icon: 'iconfont-icon-collapse-right',
 		 path:'four',
 	},
 	  {
@@ -152,7 +152,7 @@ const routerObj2 = [
 		parentId:"0",
 		menuName:'测试',
 		component:'Index',
-		icon: 'el-icon-setting',
+		icon: 'iconfont-icon-home',
 		 path:'xxx7',
 	},
 	{
@@ -160,15 +160,15 @@ const routerObj2 = [
 		parentId:"0",
 		menuName:'测试',
 		component:'Index',
-		icon: 'el-icon-setting',
+		icon: 'iconfont-icon-collapse-right',
 		 path:'xxx8',
 	},
 	{
 		id:"3003",
 		parentId:"0",
-		menuName:'测试',
+		menuName:'测试456456',
 		component:'Index',
-		icon: 'el-icon-setting',
+		icon: 'iconfont-icon-home',
 		 path:'xxx89',
 	},
 	{

@@ -8,7 +8,7 @@
      <!-- 有多个子集 -->
         <el-submenu v-else :index="item.path">
           <template slot="title">
-            <i class="el-icon-location"></i>
+            <i  :class="item.icon"></i>
             <span slot="title"> {{item.menuName}} </span>
           </template>
           <!-- 递归组件 -->
