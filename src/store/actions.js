@@ -1,7 +1,7 @@
 
 
 
-
+import cloneDeep from 'lodash/cloneDeep';
 export default {
 	//登录  设置权限会自动触发  生成树
 	setPermission({ commit }, permission) {
@@ -10,7 +10,9 @@ export default {
 		// 这里边是可以  请求接口的=== 
 		//    想法： 便利出的数据 =一份已给菜单   可以直接用 
 		// 只能缓存 menu 数据 ：
-		let data = JSON.parse(JSON.stringify(permission))
+		
+		// let data = JSON.parse(JSON.stringify(permission))
+		let data = cloneDeep(permission)
 		let targetArr = []
 		function authTree(list, nodeId, targetArr) {
 			if (!targetArr) { return }
@@ -22,7 +24,7 @@ export default {
 				}
 			});
 		}
-		authTree(JSON.parse(JSON.stringify(data)), 0, targetArr) 
+		authTree(cloneDeep(data), 0, targetArr) 
 		commit('setPermission', targetArr)
 
 

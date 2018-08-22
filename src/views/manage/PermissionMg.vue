@@ -83,6 +83,7 @@
 
 <script>
  let id = 1000;
+ import cloneDeep from 'lodash/cloneDeep';
   export default {
     data() {
       return {
@@ -217,7 +218,8 @@
 computed:{
   data5:function(){
     console.log('authList 改变了')
-      let data =   JSON.parse(JSON.stringify(this.authList))
+      // let data =   JSON.parse(JSON.stringify(this.authList))
+     let data =   cloneDeep(this.authList)
       let targetArr = []
     function authTree(list,nodeId,targetArr){
       if(!targetArr){return}
@@ -229,13 +231,16 @@ computed:{
           }
           });
     }
-    authTree(JSON.parse(JSON.stringify(data)),0,targetArr)
+    // authTree(JSON.parse(JSON.stringify(data)),0,targetArr)
+    authTree(cloneDeep(data),0,targetArr)
     return  targetArr
   }
 },
     methods: {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
+          // let FORM = JSON.parse(JSON.stringify(this.form))
+            let FORM =  cloneDeep(this.form)
           if (valid) {
    
             if(!this.edit){
@@ -244,7 +249,6 @@ computed:{
 
               // 请求成功
             
-            let FORM = JSON.parse(JSON.stringify(this.form))
               FORM.id =   id ++
           // 返回对象
 
@@ -256,9 +260,7 @@ computed:{
             });
             this.authList.push(FORM)
 
-           }else{
-
-           let FORM = JSON.parse(JSON.stringify(this.form))
+           }else{       
             delete FORM.children ;
             // 请求成功  
               this.$notify({
@@ -316,7 +318,8 @@ computed:{
       },
       editNode(node,data){
              this.title = '编辑：'+data.menuName
-             this.form =  JSON.parse(JSON.stringify(data))
+            //  this.form =  JSON.parse(JSON.stringify(data))
+              this.form =  cloneDeep(data)
               this.dialogFormVisible = true;
               this.edit = true;
       },
