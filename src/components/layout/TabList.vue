@@ -143,14 +143,11 @@ import { mapMutations } from "vuex";
 
 
     .tabListWp {
-        width:calc(~"100% - 40px");
-      // margin-left: 40px;
+      width:calc(~"100% - 40px");
       display: flex;
        height: 42px;
-        // position: absolute;
         z-index: 1;
-        // padding-right: 15px; 
-        // overflow: auto;
+        overflow: hidden;
         border-top: 5px solid #ccc;
         border-bottom: 7px solid #f2f2f2;
       /*定义滚动条高宽及背景
@@ -179,7 +176,7 @@ import { mapMutations } from "vuex";
         }
         li {
               width: 200px;
-                min-width: 92px;
+                min-width: 94px;
         }
        .tab {
          color: #545c64;
@@ -244,20 +241,24 @@ import { mapMutations } from "vuex";
 
 
           .list-complete-item {
-          transition: all .4s ease-in-out;
+          transition: all .3s ease-in-out;
             /* display: inline-block; */
             /* margin-right: 10px; */
           }
-         .list-complete-leave-to, .list-complete-enter
-          /* .list-complete-leave-active for below version 2.1.8 */ {
-            opacity: 0;
-            transform: translateX(-50px);
-     
-          }
+    
+           .list-complete-enter, .list-complete-leave-to {
+             opacity: 0;
+             transform: translateX(50px);
+           }
        
           .list-complete-leave-active {
             position: absolute;
+            // left: initial;
+            
           }
+          // .list-complete-move {
+          //   transition: transform .2s;
+          // }
     
 
 
