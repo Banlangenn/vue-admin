@@ -99,8 +99,8 @@ const routerObj2 = [
 	  {
 		id:"11",
 		parentId:"1",
-	   menuName:'一级1-2',
-		component:'HelloWorld',
+	   menuName:'一级ListComplete ',
+		component:'ListComplete',
 		icon: 'el-icon-setting',
 		 path:'one',
 	},

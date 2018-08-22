@@ -14,15 +14,14 @@
       </div>
 <!-- 随时可以把我干掉   -- 不会影响别的-->
 
-    <transition-group  tag='ul'  class="tabListWp"   name="my2" >
-      <router-link  
-          :to="tabData.path" 
-          tag="li" 
-          v-for="(tabData,index) of tabsData"    
-          :key = 'tabData.path'  
-          class="tc tab"
-    > 
-
+    <transition-group  tag='ul'  class="tabListWp "   name="my"  >
+              <router-link  
+                  :to="tabData.path" 
+                  tag="li" 
+                  v-for="(tabData,index) of tabsData"    
+                  :key = 'tabData.path'  
+                  class="tc tab "
+            > 
        <div class="tab-bg" :class="crrIndex == index ? 'tab-active':'' "></div>
        <el-tooltip
         class="item" 
@@ -46,7 +45,9 @@
   </div>
 </template>
 <script>
-// draggable  实现拖拽   t 太丑放弃
+// draggable  实现拖拽   t 太丑放弃 
+
+
 import { mapMutations } from "vuex";
   export default {
     data() {
@@ -140,18 +141,17 @@ import { mapMutations } from "vuex";
          }
     .tabListWp {
         width:calc(~"100% - 40px");
-      margin-left: 40px;
+      // margin-left: 40px;
       display: flex;
        height: 50px;
-        position: absolute;
+        // position: absolute;
         z-index: 1;
-        padding-right: 15px; 
+        // padding-right: 15px; 
         overflow: auto;
         border-top: 10px solid #ccc;
         border-bottom: 10px solid #f2f2f2;
       /*定义滚动条高宽及背景
  高宽分别对应横竖滚动条的尺寸*/
-
 &::-webkit-scrollbar{
     width:6px;
     height:6px;
@@ -180,7 +180,7 @@ import { mapMutations } from "vuex";
         min-width: 91px;
         line-height: 30px;
          padding: 0 30px;
-         position: relative;
+         position: relative;// 为什么要用 relative; bg要定位， 取消按钮 要定位
             &:hover{
                   color: #7aafe4;
                 }
@@ -223,25 +223,20 @@ import { mapMutations } from "vuex";
     }
   }
 
-    .my2-enter,.my2-leave-to{
-            opacity:  0;/*透明度*/
-            transform: translateY(30px);
-        }
-         /*入场(离场)动画的时间段   */
-         .my2-enter,.my-leave-to{
-            opacity:  0;/*透明度*/
-            transform: translateY(30px);
-        }
-        .my2-enter-active,.my2-leave-active{
-            transition: all 0.3s ease-in-out;
 
+
+         /*入场(离场)动画的时间段   */
+         .my-enter,.my-leave-to{
+            opacity:  0;/*透明度*/
+            transform: translateY(30px);
+        }
+        .my-enter-active,.my-leave-active{
+            transition: all 0.4s ease-in-out;
         }
 
 
         
     
-
-
 
 
 </style>
