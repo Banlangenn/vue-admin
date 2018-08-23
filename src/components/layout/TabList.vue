@@ -242,7 +242,7 @@ import { mapMutations } from "vuex";
 
           .list-complete-item {
           transition: all .3s ease-in-out;
-            /* display: inline-block; */
+            // display: inline-block; 
             /* margin-right: 10px; */
           }
     

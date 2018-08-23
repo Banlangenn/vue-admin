@@ -1,6 +1,6 @@
 <template>
         <el-menu-item :index="basePath"  v-if="item.children.length < 1" class="ellipse">
-          <i :class="item.icon"></i>
+          <i   v-if="item.icon"   :class="item.icon"></i>
           <span v-if="item.menuName" slot="title">{{item.menuName}}</span>
         </el-menu-item>
 
@@ -8,7 +8,7 @@
      <!-- 有多个子集 -->
         <el-submenu v-else :index="item.path">
           <template slot="title">
-            <i  :class="item.icon"></i>
+            <i  v-if="item.icon"  :class="item.icon"></i>
             <span slot="title"> {{item.menuName}} </span>
           </template>
           <!-- 递归组件 -->

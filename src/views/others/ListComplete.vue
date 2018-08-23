@@ -41,7 +41,7 @@ export default {
 <style scoped>
 .list-complete-item {
   transition: all 1s;
-  /* display: inline-block; */
+  display: inline-block;
   /* margin-right: 10px; */
 }
 .list-complete-enter, .list-complete-leave-to
@@ -52,7 +52,7 @@ export default {
 .list-complete-leave-active {
   position: absolute;
 }
-.wrap {
+/* .wrap {
 display: flex;
-}
+} */
 </style>

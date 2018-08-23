@@ -1,8 +1,8 @@
 /*
 * @Author: LJW
 * @Date:   2018-07-12 14:38:18
-* @Last Modified by:   LJW
-* @Last Modified time: 2018-08-03 17:52:01
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2018-08-23 10:00:49
 */
 // vue.config.js 配置说明
 // 这里只列一部分，具体配置惨考文档啊
@@ -110,16 +110,7 @@ module.exports = {
     
     } else { // 生产环境配置
 
-       // 添加压缩图片 loader
-  //  config.module
-  //       .rule('imageWebpack')
-  //       .test(/\.(gif|png|jpe?g|svg)$/i)
-  //       .use('image-webpack-loader')
-  //         .loader('image-webpack-loader')
-  //         .options({
-  //                     bypassOnDebug: true,
-  //                 })
-  //         .end()
+
 
 
 
