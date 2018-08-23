@@ -2,10 +2,13 @@
  * @Author:douya 
  * @Date: 2018-08-12 16:06:50 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-08-20 15:48:33
+ * @Last Modified time: 2018-08-23 11:31:31
  * @Description: 用哪个打开哪个   import  和 use
  */
 // import 'element-ui/lib/theme-chalk/index.css';
+
+
+
 import Vue from 'vue';
 import {
     Scrollbar,
@@ -150,3 +153,14 @@ Vue.prototype.$confirm = MessageBox.confirm;
 Vue.prototype.$prompt = MessageBox.prompt;
 Vue.prototype.$notify = Notification;
 Vue.prototype.$message = Message;
+
+
+
+
+
+
+
+
+
+
+

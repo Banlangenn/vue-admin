@@ -14,7 +14,7 @@
       </div>
 <!-- 随时可以把我干掉   -- 不会影响别的-->
 
-    <transition-group  tag='ul'  class="tabListWp "   name="list-complete"  >
+    <transition-group  tag='ul'  class="tabListWp "   name="el-zoom-in-center"  >
       <li   v-for = "(tabData,index) of tabsData"    :key = 'tabData.path'   class="list-complete-item" >
               <router-link  
                   :to="tabData.path" 
@@ -46,6 +46,7 @@
 </template>
 <script>
 // draggable  实现拖拽   t 太丑放弃 
+
 
 
 import { mapMutations } from "vuex";
@@ -228,7 +229,7 @@ import { mapMutations } from "vuex";
   }
 
 
-
+// 向上
          /*入场(离场)动画的时间段   */
          .my-enter,.my-leave-to{
             opacity:  0;/*透明度*/
@@ -239,9 +240,9 @@ import { mapMutations } from "vuex";
         }
 
 
-
+//  向左
           .list-complete-item {
-          transition: all .3s ease-in-out;
+          transition: all .3s cubic-bezier(.55, 0, .1, 1)
             // display: inline-block; 
             /* margin-right: 10px; */
           }
@@ -253,13 +254,24 @@ import { mapMutations } from "vuex";
        
           .list-complete-leave-active {
             position: absolute;
-            // left: initial;
             
           }
-          // .list-complete-move {
-          //   transition: transform .2s;
-          // }
-    
+
+//  缩放
+
+        .el-zoom-in-center-enter-active,
+        .el-zoom-in-center-leave-active {
+            -webkit-transition: all .3s cubic-bezier(.55, 0, .1, 1);
+            transition: all .3s cubic-bezier(.55, 0, .1, 1)
+        }
+
+        .el-zoom-in-center-enter,
+        .el-zoom-in-center-leave-active {
+            opacity: 0;
+            transform: scale(0,0);
+                position: absolute;
+        }
+
 
 
 </style>
