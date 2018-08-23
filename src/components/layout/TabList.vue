@@ -248,7 +248,7 @@ import { mapMutations } from "vuex";
     
            .list-complete-enter, .list-complete-leave-to {
              opacity: 0;
-             transform: translateX(50px);
+             transform: translateX(-150px);
            }
        
           .list-complete-leave-active {
