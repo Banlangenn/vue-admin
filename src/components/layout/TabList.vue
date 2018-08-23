@@ -14,7 +14,7 @@
       </div>
 <!-- 随时可以把我干掉   -- 不会影响别的-->
 
-    <transition-group  tag='ul'  class="tabListWp "   name="el-zoom-in-center"  >
+    <transition-group  tag='ul'  class="tabListWp "   name="list-complete"  >
       <li   v-for = "(tabData,index) of tabsData"    :key = 'tabData.path'   class="list-complete-item" >
               <router-link  
                   :to="tabData.path" 
@@ -231,46 +231,30 @@ import { mapMutations } from "vuex";
 
 // 向上
          /*入场(离场)动画的时间段   */
-         .my-enter,.my-leave-to{
+         .my-enter,.my-leave{
             opacity:  0;/*透明度*/
             transform: translateY(30px);
         }
         .my-enter-active,.my-leave-active{
-            transition: all 0.4s ease-in-out;
+             transition: all .3s cubic-bezier(.55, 0, .1, 1)
         }
 
 
 //  向左
           .list-complete-item {
           transition: all .3s cubic-bezier(.55, 0, .1, 1)
-            // display: inline-block; 
-            /* margin-right: 10px; */
           }
-    
-           .list-complete-enter, .list-complete-leave-to {
+           .list-complete-enter,.list-complete-leave {
              opacity: 0;
-             transform: translateX(-150px);
+             transform: translateX(-95px);
            }
-       
-          .list-complete-leave-active {
+            .list-complete-leave-to,.my-leave-active-leave-to{
+                      opacity: 0;
+                    transform:  scale(0);
+                    }
+          .list-complete-leave-active,.my-leave-active {
             position: absolute;
-            
           }
-
-//  缩放
-
-        .el-zoom-in-center-enter-active,
-        .el-zoom-in-center-leave-active {
-            -webkit-transition: all .3s cubic-bezier(.55, 0, .1, 1);
-            transition: all .3s cubic-bezier(.55, 0, .1, 1)
-        }
-
-        .el-zoom-in-center-enter,
-        .el-zoom-in-center-leave-active {
-            opacity: 0;
-            transform: scale(0,0);
-                position: absolute;
-        }
 
 
 
