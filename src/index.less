@@ -1,5 +1,8 @@
 /*公共样式--开始*/
-html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select {
+html, body, div, ul, li, 
+h1, h2, h3, h4, h5, 
+h6, p, dl, dt, dd, ol,
+ form, input, textarea, th, td, select {
     margin: 0;
     padding: 0;
 }
@@ -60,15 +63,12 @@ textarea {
   line-height: 0 !important ;
   box-shadow: 5px 5px 5px #888888;
 }
-
-
-
-	html,body,#app,.app-wrapper {
+html,body,#app {
 		height:100%;
-		width:100%;
   }
-  
 
+
+// 全局样式  备注一下作用   解决   menu-icon 样式大小
 
    .el-menu-item  i[class^=iconfont-icon-] {
     vertical-align: middle;
@@ -77,6 +77,8 @@ textarea {
     text-align: center;
     font-size: 18px;
 }
+
+// 全局样式  备注一下作用   解决  进度条颜色 
 /* Make clicks pass-through */
 #nprogress {
   pointer-events: none;
@@ -108,6 +110,11 @@ textarea {
           transform: rotate(3deg) translate(0px, -4px);
 }
 
+// // 全局样式  备注一下作用   解决 request-notification 位置错乱
+// .el-notification.request-notification {
+//     right: 79px;
+// }
+// 全局样式  备注一下作用   解决 tooltip__popper 位置错乱
 .el-header {
   padding: 0 !important; 
 }

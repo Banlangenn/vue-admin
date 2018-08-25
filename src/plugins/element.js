@@ -1,8 +1,8 @@
 /*
  * @Author:douya 
  * @Date: 2018-08-12 16:06:50 
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-08-23 11:31:31
+ * @Last Modified by: xiaoliu
+ * @Last Modified time: 2018-08-25 20:51:35
  * @Description: 用哪个打开哪个   import  和 use
  */
 // import 'element-ui/lib/theme-chalk/index.css';
@@ -36,8 +36,8 @@ import {
     //   OptionGroup,
     Button,
     //   ButtonGroup,
-    //   Table,
-    //   TableColumn,
+      Table,
+      TableColumn,
     //   DatePicker,
     //   TimeSelect,
     //   TimePicker,
@@ -105,8 +105,8 @@ Vue.use(Option);
 // Vue.use(OptionGroup);
 Vue.use(Button);
 // Vue.use(ButtonGroup);
-// Vue.use(Table);
-// Vue.use(TableColumn);
+Vue.use(Table);
+Vue.use(TableColumn);
 // Vue.use(DatePicker);
 // Vue.use(TimeSelect);
 // Vue.use(TimePicker);

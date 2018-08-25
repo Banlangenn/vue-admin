@@ -10,7 +10,7 @@ Vue.use(Router);
                     component:  RouterCom['Index'],
                     children: [{
                             path: "/",
-                            component: RouterCom['HelloWorld'],
+                            component: RouterCom['UpdateLog'],
                             meta: { icon: 'iconfont-icon-home', title: '首页' }
                         }
                     ]

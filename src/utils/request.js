@@ -64,12 +64,11 @@ function checkStatus(response) {
     return response;
   }
   const errortext = codeMessage[response.status] || response.statusText;
-  Notification({
-    type: 'error',
-    dangerouslyUseHTMLString:true,
-    title:errortext, 
-    message: `<p style="word-break:break-all; ">请求错误 ${response.status}: ${response.url}</p>`,
-    duration:0
+  Notification.error({
+    title: `请求错误 ${response.status}`, 
+    message:errortext,
+    duration:2600,
+    customClass:'request-notification'
   });
  
   const error = new Error(errortext);
