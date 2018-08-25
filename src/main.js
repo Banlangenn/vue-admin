@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import './plugins/element.js'
 import '@/assets/icon/iconfont.css'
+import '@/index.less'
 import NProgress from 'nprogress' // progress bar
 NProgress.configure({ easing: 'ease',showSpinner: false})
 
@@ -26,11 +27,14 @@ new Vue({
 
 
 
+// 全局导航守卫
 router.beforeEach((to, from, next) => {
  NProgress.start();
  next()
 
 });
+
+
 router.afterEach(transition => {
  NProgress.done();
 });
@@ -211,6 +215,7 @@ const routerObj2 = [
 	setTimeout(()=>{
 		store.dispatch("setPermission",routerObj2); 
 	},5000)
+	store.dispatch('getproduct')
 
 
 			  

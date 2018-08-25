@@ -1,12 +1,9 @@
 import fetch from 'isomorphic-fetch';
-import vue from vue;
-// import { notification } from 'antd';
 import { Notification } from 'element-ui';
-// import { routerRedux } from 'dva/router';
-// import store from '../index';
 import { stringify } from 'qs';
 import router from "@/router";
 import store from "@/store";
+const  md5 =  require('md5');
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
   201: '新建或修改数据成功。',
@@ -32,22 +29,47 @@ const codeMessage = {
     所以一般会对fetch请求做一层封装，例如下面代码所示：
 */
 
-function addPublic(params){
+function addPublic(config){
 // xxxx
-
-
-  return  params;
+let publicparams = {
+  phoneSys:'4.0.0',
+  sysVersion:'4.0.0',
+  verNum :  '4.0.0',   //【版本值】??
+  appVersion : '4.0.0',
+  apiVersion : '1.0',    //【版本】
+  appPackageName : '集财理财',
+  appPlatform : '3',    //【平台】
+  channel :'wechat',      //【渠道】
+  phoneId :'rwechat'     //【手机串号】
+}
+ const params = {...config.body ,publicparams};
+    let sortStr = '',time = new Date().getTime();
+     Object.keys(params).sort().forEach((item)=>{
+         sortStr+=`"${item}":"${params[item]}"|`
+     })
+     sortStr+=`"mark":"f6698b14a7c04456bfc587195331cd83"|"t":"${time}"`
+     config.headers = {
+      'sign' :md5(sortStr).toUpperCase(),
+         'p' :'jicai_html',
+         't' :time,
+         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8 '
+     }
+    config.body = stringify({parameters:JSON.stringify(params)});
+  return  config;
 }
 
 
 function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 200 && response.status < 300) {  
     return response;
   }
   const errortext = codeMessage[response.status] || response.statusText;
-  Notification.error({
-    title: `请求错误 ${response.status}: ${response.url}`,
-    message: errortext,
+  Notification({
+    type: 'error',
+    dangerouslyUseHTMLString:true,
+    title:errortext, 
+    message: `<p style="word-break:break-all; ">请求错误 ${response.status}: ${response.url}</p>`,
+    duration:0
   });
  
   const error = new Error(errortext);
@@ -61,7 +83,7 @@ function checkStatus(response) {
  *
  */
 export default function request(url,method,body,headers) {
-  const newOptions = {
+  let config = {
     credentials: 'include',
     url,
     method,
@@ -71,41 +93,39 @@ export default function request(url,method,body,headers) {
 
   // 1 是  FormData  就不需要添加公共参数
    // newOptions.body is FormData
-  if(newOptions.body instanceof FormData){
-    newOptions.headers = {
+  if(config.body instanceof FormData){
+    config.headers = {
       Accept: 'application/json',
-      ...newOptions.headers,
+      ...config.headers,
     };
   }else{
     // 正常请求
-
     // 添加公共参数开始
-    newOptions =  addPublic(newOptions);
+    config =  addPublic(config);
 
     if (
-      newOptions.method === 'POST' ||
-      newOptions.method === 'PUT' ||
-      newOptions.method === 'DELETE'
+      config.method === 'POST' ||
+      config.method === 'PUT' ||
+      config.method === 'DELETE'
     ) {
-      newOptions.headers = {
+      config.headers = {
         Accept: 'application/json',
         'Content-Type': 'application/json; charset=utf-8',
-        ...newOptions.headers,
+        ...config.headers,
       };
-      newOptions.body = JSON.stringify(newOptions.body);
+      // config.body = JSON.stringify(config.body);
     }
-
-
-    if( newOptions.method === 'GET') {
+    if( config.method === 'GET') {
       // 加公共参数 还是需要这个东西
-      newOptions.url = `${newOptions.url}?${stringify(newOptions.body)}`;
-      delete newOptions.body;
+      config.url = `${config.url}?${stringify(config.body)}`;
+      delete config.body;
     }
+
   }
 
 
 
-  return fetch(url, newOptions)
+  return fetch(url, config)
     .then(checkStatus)
     .then(response => {
       if (newOptions.method === 'DELETE' || response.status === 204) {

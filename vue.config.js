@@ -1,8 +1,8 @@
 /*
 * @Author: LJW
 * @Date:   2018-07-12 14:38:18
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-08-23 10:00:49
+ * @Last Modified by: xiaoliu
+ * @Last Modified time: 2018-08-24 23:51:23
 */
 // vue.config.js 配置说明
 // 这里只列一部分，具体配置惨考文档啊

@@ -1,11 +1,9 @@
 <template>
-  <section class="app-main">
     <transition name="fade-transform" mode="out-in">
       <!-- <keep-alive :include="cachedViews"> -->
         <router-view ></router-view>
       <!-- </keep-alive> -->
     </transition>
-  </section>
 </template>
 
 <script>
@@ -22,7 +20,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .fade-transform-leave-active,
 .fade-transform-enter-active {
   transition: all .4s ;

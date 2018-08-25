@@ -55,6 +55,7 @@ import { mapMutations } from "vuex";
       return {
         tabsData:[],
         crrIndex:-1,
+        specialRouter:['/exception/404','/exception/403','/exception/500','/login']
       }
     },
     mounted(){
@@ -63,13 +64,18 @@ import { mapMutations } from "vuex";
     watch: {
     $route() {
       this.addTab()
-     console.log(this.$route)
     },
   },
      methods: {
     ...mapMutations(["changeCollapsn"]),
     addTab(){
       // tabs数据中没有 这个 路由
+      // 特殊路由 不添加
+      if(this.specialRouter.some((item)=>item == this.$route.path)){
+        this.crrIndex = -1;
+        return;
+      } 
+
       if (this.tabsData.some(v => v.path === this.$route.path)){
           for (let i= 0; i< this.tabsData.length;i++) {
             if (this.tabsData[i].path === this.$route.path) {

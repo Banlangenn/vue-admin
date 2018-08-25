@@ -1,8 +1,8 @@
 /*
  * @Author:douya 
  * @Date: 2018-08-12 01:05:13 
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-08-20 10:58:04
+ * @Last Modified by: xiaoliu
+ * @Last Modified time: 2018-08-24 23:44:58
  * @Description: 我们组装模块并导出 store 的地方 
  * 1.需要存在 本地的放在外边 跟信息 好取 好拿 好存 
  * 2.需要配置vuex 组件 plugins
@@ -11,6 +11,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import createPersistedState from 'vuex-persistedstate'
 import createLogger from 'vuex/dist/logger'
+import product from './modules/product.js'
 Vue.use(Vuex);
 
 // 模块
@@ -75,7 +76,7 @@ const initstate = {
 export default new Vuex.Store({
   modules: {
     // cart, // 模块
-    // products // 模块
+    product // 模块
   },
   state: initstate,// 根状态
   mutations,// 根状态

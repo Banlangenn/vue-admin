@@ -4,10 +4,14 @@ export default {
     setPermission(state,permission){
         state.permission = permission;
     },
-       // 切换Collapsn
+    // 切换Collapsn
     changeCollapsn(state){
         state.isCollapse = !state.isCollapse
-    }
+    },
+    // 设置用户信息
+    setUser(state,userinfo){
+            state.userinfo = userinfo;
+   }
 }
 
 

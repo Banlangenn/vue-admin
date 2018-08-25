@@ -39,14 +39,12 @@ export default {
   name: "navMenu",
   components: { MenuItem },
    computed: {
-  // 使用对象展开运算符将 getter 混入 computed 对象中
   loading(){
-    // alert( this.$store.state.permission.length)
     if( this.$store.state.permission.length < 1 ){
        return  true
     }else{
-      // 添加 -- 路由
-              this.$router.addRoutes(this.$store.getters.routerArray2) 
+            // 添加 -- 路由  必须有
+       this.$router.addRoutes(this.$store.getters.renderRouter) 
         return  false
     }
   }
