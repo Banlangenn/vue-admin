@@ -68,7 +68,15 @@
     <el-input v-model="form.path"  placeholder="请输入内容"></el-input>
   </el-form-item>
   <el-form-item label="component" prop="component">
-    <el-input v-model="form.component"  placeholder="请输入内容"></el-input>
+    <!-- <el-input v-model="form.component"  placeholder="请输入内容"></el-input> -->
+     <el-autocomplete
+      class="inline-input"
+      v-model="form.component"
+      :fetch-suggestions="querySearch"
+      placeholder="请输入内容"
+      :trigger-on-focus="false"
+       @select="handleSelect"
+    />
   </el-form-item>
 </el-form>
   <div slot="footer" class="dialog-footer">
@@ -83,12 +91,14 @@
 
 <script>
  let id = 1000;
+ import { comArr }  from '@/router/comObj';
  import cloneDeep from 'lodash/cloneDeep';
   export default {
     data() {
       return {
         title:'',
         edit:false,
+        restaurants: [],
         authList : [
   {
       id:"1",
@@ -184,7 +194,7 @@
           ],
            component: [
             { required: false, message: '请输入组件名称', trigger: 'blur' },
-            { min: 3, max: 25, message: '长度在 3 到 10个字符', trigger: 'blur' }
+            { min: 1, max: 25, message: '长度在 1 到 10个字符', trigger: 'blur' }
           ],
             path: [
             { required: true, message: '请输入路由路径', trigger: 'blur' },
@@ -356,11 +366,6 @@ computed:{
             }
 
 
-
-
-
-
-
             
               // 删除节点
           })
@@ -368,17 +373,31 @@ computed:{
         
           });
 
-        }
-       
+        } 
       },
+       // 搜索提示
+      querySearch(queryString, cb) {
+        const results = queryString ? comArr.filter(this.createFilter(queryString)) : comArr;
+        // 调用 callback 返回建议列表的数据
+        cb(results.map((item) =>({ 'value' : item })));
+      },
+      createFilter(queryString) {
+        console.log(queryString)
+        return (comstr) => {
+          // return (comstr.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+          return (comstr.toLowerCase().indexOf(queryString.toLowerCase()) !== -1);
+        }
+    },
+     handleSelect(item) {
+        console.log(item);
+      }
     }
-  };
+  }
  
 
 </script>
 <style scoped lang = 'less'>
 .permission{
-  
     .treeHeader{
       display: flex;
       padding: 10px 0;
@@ -390,6 +409,9 @@ computed:{
         width: 120px;
       }
     }
+  .el-autocomplete {
+    width:100%;
+  }
   .edit {
     margin-left: 10px;
     i {

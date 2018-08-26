@@ -13,14 +13,18 @@ const ListComplete = () => import(/* webpackChunkName: "listComplete" */ "@/view
 const Exception = () => import(/* webpackChunkName: "Exception" */ "@/components/Exception/index.vue") 
 
 
-export default {
-    Index,
-    UpdateLog,
-    PermissionMg,
+const comObj = {
+                Index,
+                UpdateLog,
+                PermissionMg,
 
-    
-    Exception,
-    About ,
-    HelloWorld,
-    ListComplete, 
-}
+                
+                Exception,
+                About ,
+                HelloWorld,
+                ListComplete, 
+            }
+
+
+export  const comArr =   Object.keys(comObj);
+export default comObj;

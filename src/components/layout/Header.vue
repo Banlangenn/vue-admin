@@ -1,9 +1,7 @@
 
 <template>
   <div class="head">
-   60px
-  
- <router-link to="/permission/about46/helloWorld2-6/helloWorld2-3">ManageConfig</router-link>
+   64px
   </div>
 </template>
 <script>
@@ -21,8 +19,9 @@
 
   .head {
     background: #e5e9f2;
-    height: 60px;
+    height: 64px;
     width: 100%;
+    
   }
 
 </style>

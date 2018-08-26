@@ -63,11 +63,13 @@ function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {  
     return response;
   }
+
   const errortext = codeMessage[response.status] || response.statusText;
+  const url = response.url.substring(response.url.indexOf('/api'))
   Notification.error({
-    title: `请求错误 ${response.status}`, 
+    title: `请求错误 ${response.status}:${url}`, 
     message:errortext,
-    duration:2600,
+    // duration:0,
     customClass:'request-notification'
   });
  

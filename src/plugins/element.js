@@ -2,7 +2,7 @@
  * @Author:douya 
  * @Date: 2018-08-12 16:06:50 
  * @Last Modified by: xiaoliu
- * @Last Modified time: 2018-08-25 20:51:35
+ * @Last Modified time: 2018-08-26 14:56:36
  * @Description: 用哪个打开哪个   import  和 use
  */
 // import 'element-ui/lib/theme-chalk/index.css';
@@ -14,7 +14,7 @@ import {
     Scrollbar,
     //   Pagination,
     Dialog,
-    //   Autocomplete,
+      Autocomplete,
     //   Dropdown,
     //   DropdownMenu,
     //   DropdownItem,
@@ -83,7 +83,7 @@ import {
 Vue.use(Scrollbar)
 // Vue.use(Pagination);
 Vue.use(Dialog);
-// Vue.use(Autocomplete);
+Vue.use(Autocomplete);
 // Vue.use(Dropdown);
 // Vue.use(DropdownMenu);
 // Vue.use(DropdownItem);

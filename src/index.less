@@ -111,9 +111,12 @@ html,body,#app {
 }
 
 // // 全局样式  备注一下作用   解决 request-notification 位置错乱
-// .el-notification.request-notification {
-//     right: 79px;
-// }
+.el-notification.request-notification {
+    // right: 79px;
+    .el-notification__title {
+        word-break: break-all;
+    }
+}
 // 全局样式  备注一下作用   解决 tooltip__popper 位置错乱
 .el-header {
   padding: 0 !important; 
