@@ -75,8 +75,10 @@
       :fetch-suggestions="querySearch"
       placeholder="请输入内容"
       :trigger-on-focus="false"
+      :readonly = 'rootNodeCom'
        @select="handleSelect"
     />
+     <!-- :trigger-on-focus="false" -->
   </el-form-item>
 </el-form>
   <div slot="footer" class="dialog-footer">
@@ -98,7 +100,7 @@
       return {
         title:'',
         edit:false,
-        restaurants: [],
+        rootNodeCom:false,
         authList : [
   {
       id:"1",
@@ -274,19 +276,19 @@ computed:{
             delete FORM.children ;
             // 请求成功  
               this.$notify({
-              title: '修改<'+FORM.menuName+'>',
-              message: '修改<'+FORM.menuName+'>节点,成功',
-              type: 'success'
-            });
+                title: '修改<'+FORM.menuName+'>',
+                message: '修改<'+FORM.menuName+'>节点,成功',
+                type: 'success'
+              });
              //如果  返回新数组 不用我自己在遍历了
-          for(let i =0; i<this.authList.length;i++){
-            if(this.authList[i].id === FORM.id){
-              console.log(this.authList[i] )
-                this.authList.splice(i,1,FORM)
-              break;
-            }
-         
-          }
+              for(let i =0; i<this.authList.length;i++){
+                if(this.authList[i].id === FORM.id){
+                  console.log(this.authList[i] )
+                    this.authList.splice(i,1,FORM)
+                  break;
+                }
+            
+              }
            } 
                   /***
              * dialog 影藏
@@ -294,9 +296,7 @@ computed:{
              */
          
           this.dialogFormVisible = false
-           this.resetForm() 
-  
-           
+          this.resetForm()  
           } else {
             console.log('error submit!!');
             return false;
@@ -321,9 +321,12 @@ computed:{
         this.title = '添加节点'
         this.resetForm()
         this.dialogFormVisible = true;
-       this.form.parentId =  data.id;// 把当前的 id 也就是将要插入的
+        this.form.parentId =  data.id;// 把当前的 id 也就是将要插入的
        if(data.id == 0){
+         this.rootNodeCom = true;
           this.form.component = 'Index'
+       }else{
+         this.rootNodeCom = false;
        }
       },
       editNode(node,data){
@@ -342,7 +345,6 @@ computed:{
                 type: 'warning'
               });
         }else{
-     
          this.$confirm('检测到删除<'+data.menuName+'>节点？', '确认删除', {
           distinguishCancelAndClose: true,
           confirmButtonText: '确认',
@@ -350,11 +352,10 @@ computed:{
         })
           .then(() => {
             // 删除节点
-
              for(let i =0; i<this.authList.length;i++){
                     if(this.authList[i].id === data.id){
                       console.log(this.authList[i] )
-                        this.authList.splice(i,1)
+                      this.authList.splice(i,1)
           
                         this.$notify({
                           title: '删除<'+data.menuName+'>',
@@ -364,9 +365,6 @@ computed:{
                       break;
                     }
             }
-
-
-            
               // 删除节点
           })
           .catch(action => {
@@ -396,7 +394,7 @@ computed:{
  
 
 </script>
-<style scoped lang = 'less'>
+<style  lang = 'less'>
 .permission{
     .treeHeader{
       display: flex;
