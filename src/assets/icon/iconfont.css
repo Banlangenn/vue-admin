@@ -32,6 +32,6 @@ src: url('iconfont.ttf?t=1534609183929') format('truetype'); /* chrome, firefox,
 }
 
 .iconfont-icon-home:before { content: "\e6d2"; }
-
+.iconfont-icon-tuichu:before { content: "\e698"; }
 .iconfont-icon-collapse-right:before { content: "\e600"; }
 

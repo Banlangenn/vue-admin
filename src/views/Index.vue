@@ -2,12 +2,12 @@
  * @Author:douya 
  * @Date: 2018-08-12 16:37:57 
  * @Last Modified by: xiaoliu
- * @Last Modified time: 2018-08-25 22:44:18
+ * @Last Modified time: 2018-08-26 21:52:01
  * @Description: 基础页面 
  */
 <template>    
  <el-container style="height:100%;margin: 0;">
-  <el-header><Header/></el-header>
+  <el-header style="height:64px"><Header/></el-header>
   <el-container>
 
 
