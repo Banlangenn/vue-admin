@@ -19,21 +19,18 @@
         </AutoComplete> -->
 
          <el-autocomplete
-      class="inline-input  input"
-      v-model="value"
-      placeholder="站内搜索"
-     :class="{show:searchMode}"
-     ref ="input"
-     @blur = "leaveSearchMode"
-       :trigger-on-focus="false"
-         
-      
+            class="inline-input  input"
+            v-model="value"
+            placeholder="站内搜索"
+            :class="{show:searchMode}"
+            ref ="input"
+            @blur = "leaveSearchMode"
+            :trigger-on-focus="false"
+            :fetch-suggestions="querySearch"
+            @select="handleSelect"
     />
 
-    <!-- :fetch-suggestions="querySearch"
-   
-    
-      @select="handleSelect" -->
+
 
 
 
@@ -80,6 +77,21 @@ export default {
             this.searchMode = this.defaultOpen
         },
     methods:{
+     handleSelect(item) {
+        console.log(item);
+      },
+          querySearch(queryString, cb) {
+        var restaurants = this.dataSource;
+        var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
+        // 调用 callback 返回建议列表的数据
+        console.log(results)
+        cb(results);
+      },
+      createFilter(queryString) {
+        return (restaurant) => {
+          return (restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+        };
+      },
 //   onKeyDown(e ){
 //     if (e.key === 'Enter') {
 //       this.debouncePressEnter();
