@@ -6,11 +6,12 @@
    </span>
 
    <div class="right">
-    <div>   <el-input
+    <header-search />
+    <!-- <div>   <el-input
         placeholder="站内搜索"
         prefix-icon="el-icon-search"
         v-model="data">
-      </el-input></div>
+      </el-input></div> -->
       <el-dropdown trigger="hover">
       <span class="el-dropdown-link userinfo">
         <span class="avatar">
@@ -31,12 +32,16 @@
   </div>
 </template>
 <script>
+import HeaderSearch from '@/components/HeaderSearch/index.vue'
   export default {
     data() {
       return {
         data:''
       }
-    }
+    },
+     components:{
+      HeaderSearch
+  },
   }
 </script>
 

@@ -66,7 +66,6 @@ computed:{
     return  this.type in this.config ? this.type : '404';
   }
 }
-
 }
 </script>
 <style lang= 'less'> 
