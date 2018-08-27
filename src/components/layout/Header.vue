@@ -48,7 +48,7 @@
     width: 100%;
     display:flex;
     justify-content: space-between;
-    // padding: 0 12px 0 0;
+    padding: 0 12px;
     cursor: pointer;
     .left {
       display: inline-block;
