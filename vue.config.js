@@ -1,8 +1,8 @@
 /*
 * @Author: LJW
 * @Date:   2018-07-12 14:38:18
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-08-27 12:42:49
+ * @Last Modified by: xiaoliu
+ * @Last Modified time: 2018-08-28 23:30:34
 */
 // vue.config.js 配置说明
 // 这里只列一部分，具体配置惨考文档啊
@@ -39,12 +39,14 @@ module.exports = {
     // 默认情况下，Vue CLI假设您的应用程序将部署在域的根目录下。
     // https://www.my-app.com/。如果应用程序部署在子路径上，则需要使用此选项指定子路径。例如，如果您的应用程序部署在https://www.foobar.com/my-app/，集baseUrl到'/my-app/'.
 
-    baseUrl: process.env.NODE_ENV === 'production' ? '/' : './',
+    baseUrl: process.env.NODE_ENV === 'production' ? './css/' : './',
+    //  css打包ExtractTextPlugin  中的 publicPath   也用的这个路径  邪门！
     
 
     // outputDir: 在npm run build时 生成文件的目录 type:string, default:'dist'
 
-    // outputDir: 'dist',
+    outputDir: 'demo',
+    // assetsDir:"assets",
 
     // pages:{ type:Object,Default:undfind } 
 /*
@@ -101,8 +103,8 @@ module.exports = {
   chainWebpack: config => { // webpack链接API，用于生成和修改webapck配置，https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
 
 
-    const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-    types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
+    // const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+    // types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
 
 
 
@@ -111,7 +113,7 @@ module.exports = {
     } else { // 生产环境配置
 
 
-
+console.error('qqqqqqqqqqqqqq')
 
 
         // 添加压缩图片 loader
@@ -160,8 +162,6 @@ module.exports = {
   },
   parallel: require('os').cpus().length > 1, // 构建时开启多进程处理babel编译
   pluginOptions: { // 第三方插件配置
-
-  	
   },
 
     //   lintOnSave：{ type:Boolean default:true } 问你是否使用eslint
