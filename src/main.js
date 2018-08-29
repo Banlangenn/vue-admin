@@ -30,8 +30,17 @@ new Vue({
 // 全局导航守卫
 router.beforeEach((to, from, next) => {
  NProgress.start();
- next()
 
+	// if (store.state.permission.length === 0) {
+	// 	next('/')
+	// }else{
+	// 	next('/exception/403')		
+	// }
+
+	// 考虑一下怎么跳转404
+	// 1.没有权限跳转
+	// 怎么判断没有权限
+	next()
 });
 
 

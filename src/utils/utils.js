@@ -28,11 +28,15 @@ import cloneDeep from 'lodash/cloneDeep';
 export function getRoutes(routerData){
      // 只有 用routerArray2的时候 ==routerArray2 才会走 ，并且会缓存下来，猜测是闭包单例
             let  data  =  cloneDeep(routerData)
-            return data.map((item) => {
+            let resoult =  data.map((item) => {
                 item.component = commentsMap[item.component];
                 item.children = getRenderArr(item, item.path)
                 return item
             })
+            resoult.push({path:'*',redirect:'./exception/403'})
+            // console.log(resoult )
+            
+            return resoult
 
         }
 

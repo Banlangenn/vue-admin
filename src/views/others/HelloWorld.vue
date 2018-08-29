@@ -8,7 +8,7 @@
           <p>2. menu  生成icon  要用 v-if </p>
           <p>3. 生成路由的 meta.icon    map循环传进来 == icon </p>
         </h1>
-
+vetur 
           <h2><p>把header  补充一下</p> </h2>
         <h1> 
           <p>1.头像-昵称   点击  el-dropdown 组件     icon-退出按钮- </p>

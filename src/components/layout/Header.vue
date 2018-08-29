@@ -92,6 +92,9 @@ import { mapState } from 'vuex'
             this.$message('切换到user用户');
             this.$store.dispatch("setPermission",routerObj2);
             this.$store.commit('setUserinfo',{name:'user','avatar':Cat2}) 
+            // this.$router.forward()\
+           window.location.reload()
+
         }
       } 
     }
