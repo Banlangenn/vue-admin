@@ -2,30 +2,23 @@
 <template>
   <div class="head">
    <span class="left">
-      logo
+      <img class="logo" :src="cat" alt="">
    </span>
 
    <div class="right">
     <header-search />
-    <!-- <div>   <el-input
-        placeholder="站内搜索"
-        prefix-icon="el-icon-search"
-        v-model="data">
-      </el-input></div> -->
-      <el-dropdown trigger="hover">
+      <el-dropdown trigger="hover"  @command="handleCommand">
       <span class="el-dropdown-link userinfo">
         <span class="avatar">
-        <img src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" alt="">
+        <img :src="userinfo.avatar" alt="">
      </span>  
      <span>
-       admin
+       {{userinfo.name}}
      </span>
       </span>
-      <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item> <i class="iconfont-icon-tuichu"/> 退出登录</el-dropdown-item>
-        <el-dropdown-item> <i class="iconfont-icon-tuichu"/> 退出登录</el-dropdown-item>
-        <el-dropdown-item> <i class="iconfont-icon-tuichu"/> 退出登录</el-dropdown-item>
-        <el-dropdown-item> <i class="iconfont-icon-tuichu"/> 退出登录</el-dropdown-item>
+      <el-dropdown-menu slot="dropdown" >
+        <el-dropdown-item   command="loginout"> <i class="iconfont-icon-tuichu"/> 退出登录</el-dropdown-item>
+        <el-dropdown-item   command="user"> <i class="iconfont-icon-tuichu"/> 切换user账号</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown> 
    </div>
@@ -33,21 +26,86 @@
 </template>
 <script>
 import HeaderSearch from '@/components/HeaderSearch/index.vue'
+
+const routerObj2 = [
+    {
+      id:"2",
+      parentId:"0",
+      menuName:'开发备注',
+      component:'Index',
+      icon: 'el-icon-setting',
+      path:'test',
+    },
+
+	  {
+		id:"22",
+		parentId:"2",
+	   menuName:'添加路由和组件',
+		component:'PermissionMg',
+		icon: 'iconfont-icon-home',
+		 path:'two',
+	},
+	  {
+		id:"19  ",
+		parentId:"2",
+	   menuName:'更新日志',
+		component:'UpdateLog',
+		icon: 'el-icon-setting',
+		 path:'three',
+	},
+	{
+		id:"1922 ",
+		parentId:"2",
+	   menuName:"一些demo",
+		component:'ListComplete',
+		icon: 'el-icon-setting',
+		 path:'demo',
+	},
+  ]
+import Cat from '@/assets/cat.gif'
+import Cat2 from '@/assets/cat2.png'
+import { mapState } from 'vuex'
   export default {
+    mounted(){
+      console.log(this.$store.state.userinfo.avatar)
+    },
     data() {
       return {
-        data:''
+        data:'',
+        cat:Cat
       }
     },
      components:{
       HeaderSearch
   },
+    computed: {
+      // 使用对象展开运算符将此对象混入到外部对象中
+      ...mapState({
+         userinfo: state => state.userinfo,
+      })
+    },
+    methods:{
+      handleCommand(command) {
+        if(command === "loginout"){
+            this.$message('退出登录');
+        }else if(command === "user"){
+            this.$message('切换到user用户');
+            this.$store.dispatch("setPermission",routerObj2);
+            this.$store.commit('setUserinfo',{name:'user','avatar':Cat2}) 
+        }
+      } 
+    }
   }
 </script>
 
 
 <style lang="less" >
   .head {
+    .logo{
+      width: 50px;
+      height: 50px;
+      border-radius:100px; 
+    }
     background: #eff2f5;
     height: 64px;
     width: 100%;
@@ -86,6 +144,7 @@ import HeaderSearch from '@/components/HeaderSearch/index.vue'
       width: 24px;
       height: 24px;
       border-radius: 50%;
+      overflow: hidden;
       img {
       width: 100%;
       height: 100%;

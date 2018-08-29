@@ -9,7 +9,7 @@ export default {
         state.isCollapse = !state.isCollapse
     },
     // 设置用户信息
-    setUser(state,userinfo){
+    setUserinfo(state,userinfo){
             state.userinfo = userinfo;
    }
 }

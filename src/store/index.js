@@ -26,7 +26,7 @@ const debug = process.env.NODE_ENV !== 'production'
 
 
 const whiteList = {
-  setUserinfo:'setUser',
+  setUserinfo:'setUserinfo',
   setPermission:'setPermission',
 
   resetAllStoreInfo:'resetAllStoreInfo'// 清除本地 存储 退出登录，一定放在最后
@@ -65,7 +65,7 @@ plugins.push(createPersistedState({
 
 
 const initstate = {
-  userinfo:{},
+  userinfo:{avatar:'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',name:'admin'},
   permission:[],
   routerArray:[],
   isCollapse:false,

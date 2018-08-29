@@ -116,7 +116,7 @@ export default {
    this.searchMode =  false;
     //  this.value =' ';
     setTimeout(()=>{
-         this.value =' ';
+         this.value ='';
     },300)
   },
 
