@@ -57,6 +57,11 @@
                 title: '搜索组件',
                 content: '把ant design pre 的搜索按钮，搬到vue'
             },
+             {
+                date: '2018-08-29',
+                title: '切换账户功能',
+                content: '右上角--切换到user用户'
+            },
           ]
         }
       }
