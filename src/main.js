@@ -223,11 +223,12 @@ const routerObj2 = [
 // 我应该在 登录页== 路由添加 1.本地有缓存在app.vue2.本地没有缓存 在菜单
 	setTimeout(()=>{
 		// alert(!!store.state.permission)
-		if (!!store.state.permission) {
+		// console.log()
+		if (store.state.permission.length === 0) {
 			store.dispatch("setPermission",routerObj2);
 		}
-	},5000)
-	store.dispatch('getproduct')// 请求
+	},3000)
+	// store.dispatch('getproduct')// 请求
 
 
 			  
