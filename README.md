@@ -19,7 +19,8 @@ yarn run build
 ```
 yarn run lint
 ```
-
+### 项目目录
+```
 
 ├─App.vue
 ├─index.less
