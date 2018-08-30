@@ -1,23 +1,6 @@
 <template>
        <span class ="headerSearch " @click = "enterSearchMode">
-        <i class="el-icon-search" />
-        <!-- <AutoComplete
-          key="AutoComplete"
-          {...restProps}
-          className={inputClass}
-          value={value}
-          onChange={this.onChange}
-        >
-          <Input
-            placeholder={placeholder}
-            ref={node => {
-              this.input = node;
-            }}
-            onKeyDown={this.onKeyDown}
-            onBlur={this.leaveSearchMode}
-          />
-        </AutoComplete> -->
-
+        <i class="el-icon-search" :style = "{color:searchIcon}" />
          <el-autocomplete
             class="inline-input  input"
             v-model="value"
@@ -27,14 +10,8 @@
             @blur = "leaveSearchMode"
             :trigger-on-focus="false"
             :fetch-suggestions="querySearch"
-            @select="handleSelect"
+            @select="handleSelect"  
     />
-
-
-
-
-
-
       </span>
 </template>
 <script>
@@ -71,6 +48,10 @@ export default {
             defaultOpen: {
                 type: Boolean,
                 default: false,
+            },
+            searchIcon: {
+               type: String,
+               default: '#626262',
             }
         },
         mounted(){
@@ -78,13 +59,13 @@ export default {
         },
     methods:{
      handleSelect(item) {
-        console.log(item);
+        // console.log(item);
+        this.$router.push({path:'/'+item.path})
       },
-          querySearch(queryString, cb) {
+      querySearch(queryString, cb) {
         var restaurants = this.dataSource;
         var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
         // 调用 callback 返回建议列表的数据
-        console.log(results)
         cb(results);
       },
       createFilter(queryString) {
@@ -140,8 +121,6 @@ export default {
 
   
   .input {
-
-
     transition: width 0.3s, margin-left 0.3s;
     width: 0;
     background: transparent;
@@ -164,7 +143,7 @@ export default {
        border-bottom: 1px solid #ccc;
     }
     &.show {
-      width: 210px;
+      width: 260px;
       margin-left: 8px;
     }
   }

@@ -6,7 +6,9 @@
    </span>
 
    <div class="right">
-    <header-search />
+    <header-search 
+    :dataSource = this.$store.getters.renderSourceData
+      />
       <el-dropdown trigger="hover"  @command="handleCommand">
       <span class="el-dropdown-link userinfo">
         <span class="avatar">
@@ -67,7 +69,7 @@ import Cat2 from '@/assets/cat2.png'
 import { mapState } from 'vuex'
   export default {
     mounted(){
-      console.log(this.$store.state.userinfo.avatar)
+      // console.log(this.$store.getters.renderSourceData)
     },
     data() {
       return {

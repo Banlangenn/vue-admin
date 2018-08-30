@@ -1,5 +1,5 @@
 
-import {getRoutes} from '@/utils/utils.js'
+import {getRoutes , getSourceData} from '@/utils/utils.js'
 
 export default {
  /**
@@ -11,6 +11,9 @@ export default {
   */
     renderRouter: state => {
         return getRoutes(state.permission)
+    },
+    renderSourceData: state => {
+        return getSourceData(state.permission)
     },
     isLoginOut: state => {
         return state.userinfo ? false : true;
