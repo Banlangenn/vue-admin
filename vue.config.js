@@ -1,8 +1,8 @@
 /*
 * @Author: LJW
 * @Date:   2018-07-12 14:38:18
- * @Last Modified by: xiaoliu
- * @Last Modified time: 2018-08-28 23:30:34
+ * @Last Modified by: douya
+ * @Last Modified time: 2018-08-30 15:02:36
 */
 // vue.config.js 配置说明
 // 这里只列一部分，具体配置惨考文档啊
@@ -39,7 +39,7 @@ module.exports = {
     // 默认情况下，Vue CLI假设您的应用程序将部署在域的根目录下。
     // https://www.my-app.com/。如果应用程序部署在子路径上，则需要使用此选项指定子路径。例如，如果您的应用程序部署在https://www.foobar.com/my-app/，集baseUrl到'/my-app/'.
 
-    baseUrl: process.env.NODE_ENV === 'production' ? './css/' : './',
+    baseUrl: process.env.NODE_ENV === 'production' ? '/css/' : '/',
     //  css打包ExtractTextPlugin  中的 publicPath   也用的这个路径  邪门！
     
 

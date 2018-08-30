@@ -27,6 +27,7 @@
     "@vue/cli-service": "^3.0.0",
     "@vue/eslint-config-prettier": "^3.0.0",
     "babel-plugin-component": "^1.1.1",
+    "image-webpack-loader": "^4.3.1",
     "vue-cli-plugin-element": "^1.0.0",
     "vue-cli-plugin-element-ui": "^1.1.2",
     "vue-template-compiler": "^2.5.17"
