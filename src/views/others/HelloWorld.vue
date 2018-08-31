@@ -35,15 +35,30 @@ vetur
           <p>2.   </p>
           <p>3.  </p>
         </h1>
-   
+        <count-up tag = 'i'  :end = 'end'   :start= 1000   :handleClick = "handleClick" />   
   </div>
 </template>
 
 <script>
+import CountUp from '@/components/CountUp/index.vue'
 export default {
   name: 'HelloWorld',
+  data(){
+  return {
+    end:0
+  }
+  },
   props: {
     msg: String
+  },
+  components:{
+    CountUp
+  },
+  methods:{
+    handleClick(){
+      this.end = this.end+ 100;
+    }
+
   }
 }
 </script>

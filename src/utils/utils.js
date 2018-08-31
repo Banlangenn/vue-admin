@@ -35,13 +35,11 @@ export function getRoutes(routerData){
                 return item
             })
             resoult.push({path:'*',redirect:'./exception/403'})
-            console.log(resoult)
             return resoult
         }
 
 // 获取路由 全局搜索数据
 export function getSourceData(routerData){
-                let  data  =  cloneDeep(routerData)
                 let renderArr = [];
                 function getRoute(router, basePath, baseName) {
                     // let list2 = JSON.parse(JSON.stringify(list))
@@ -64,8 +62,11 @@ export function getSourceData(routerData){
                     route.children.forEach(element => {
                         getRoute(element, basePath + '/' + element.path, baseName + '=>' + element.menuName)
                     });
-                }  
-                getRoute(data,'','')
+                } 
+                if(routerData.length === 0){
+                    return routerData;
+                 } 
+                getRoute(routerData, '', '')
                 return renderArr;
             }
 
