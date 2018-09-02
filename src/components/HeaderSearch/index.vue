@@ -3,7 +3,7 @@
         <i class="el-icon-search" :style = "{color:searchIcon}" />
          <el-autocomplete
             class="inline-input  input"
-            v-model="value"
+           v-model = value
             placeholder="站内搜索"
             :class="{show:searchMode}"
             ref ="input"
@@ -11,7 +11,13 @@
             :trigger-on-focus="false"
             :fetch-suggestions="querySearch"
             @select="handleSelect"  
-    />
+            @input="inputFn"
+    >
+    <template slot-scope="{item}">
+        <i class="iconfont-icon-jinru" :style = "{color:'red'}" />
+        <span > {{item.value}}</span> 
+    </template>
+    </el-autocomplete>
       </span>
 </template>
 <script>
@@ -73,6 +79,9 @@ export default {
           return (restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
         };
       },
+      inputFn(){
+        console.log('inputFninputFninputFninputFninputFninputFninputFn')
+      },
 //   onKeyDown(e ){
 //     if (e.key === 'Enter') {
 //       this.debouncePressEnter();
@@ -89,16 +98,24 @@ export default {
   enterSearchMode () {
     this.searchMode = true
       if (this.searchMode) {
-        this.$refs.input.focus();
+       this.$nextTick(()=>{
+          this.$refs.input.focus();
+       })
       }
   },
 
   leaveSearchMode(){
+  //  this.searchMode =  false;
+   
+   setTimeout(()=>{
+     this.value = ''
+     this.$nextTick(() => {
+        this.$refs.input.focus();
+      });
+   },300)
+   
    this.searchMode =  false;
-    //  this.value =' ';
-    setTimeout(()=>{
-         this.value ='';
-    },300)
+  
   },
 
   // NOTE: 不能小于500，如果长按某键，第一次触发auto repeat的间隔是500ms，小于500会导致触发2次

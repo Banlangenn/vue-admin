@@ -14,7 +14,9 @@ export default {
           this.idName,
           this.start, 
           this.end,
-          2.5,
+          this.decimals,
+          this.duration,
+          
           {
           useEasing: true, 
           useGrouping: true, 
@@ -81,6 +83,8 @@ export default {
                 type: Number,
                 default:144000,
             },
+            duration:{Number},
+            decimals:{Number},
             handleClick :{
                 type: Function,
                 default: () => {},

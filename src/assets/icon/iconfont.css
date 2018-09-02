@@ -31,7 +31,13 @@ src: url('iconfont.ttf?t=1534609183929') format('truetype'); /* chrome, firefox,
   -moz-osx-font-smoothing: grayscale;
 }
 
+.iconfont-icon-jinru:before { content: "\e601"; }
+
 .iconfont-icon-home:before { content: "\e6d2"; }
+
 .iconfont-icon-tuichu:before { content: "\e698"; }
+
+.iconfont-icon-zujian:before { content: "\e7f4"; }
+
 .iconfont-icon-collapse-right:before { content: "\e600"; }
 

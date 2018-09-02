@@ -77,7 +77,12 @@
       :trigger-on-focus="false"
       :readonly = 'rootNodeCom'
        @select="handleSelect"
-    />
+    >
+     <template slot-scope="{item}">
+        <i class="iconfont-icon-zujian" :style = "{color:'#409efe',fontSize:'15px',marginRight:'4px'}" />
+        <span > {{item.value}}</span> 
+    </template>
+    </el-autocomplete>
      <!-- :trigger-on-focus="false" -->
   </el-form-item>
 </el-form>
