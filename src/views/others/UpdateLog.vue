@@ -72,6 +72,14 @@
                 title: '添加数字跳动',
                 content: '用的count.js  稍微封装一下vue'
             },
+            {
+                date: '2018-09-02',
+                title: '修复ElAutocomplete.失去焦点后，再次获取焦点出现上次数据问题',
+                content: `解决过程，源码添加lib/autocomplete.js 507行添加 if (!this.triggerOnFocus && !event.target.value) {
+        this.suggestionDisabled = true;
+        this.suggestions = [];
+        return;`
+            },
           ]
         }
       }

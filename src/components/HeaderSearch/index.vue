@@ -11,7 +11,6 @@
             :trigger-on-focus="false"
             :fetch-suggestions="querySearch"
             @select="handleSelect"  
-            @input="inputFn"
     >
     <template slot-scope="{item}">
         <i class="iconfont-icon-jinru" :style = "{color:'red'}" />
@@ -76,11 +75,8 @@ export default {
       },
       createFilter(queryString) {
         return (restaurant) => {
-          return (restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+          return (restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) !== -1);
         };
-      },
-      inputFn(){
-        console.log('inputFninputFninputFninputFninputFninputFninputFn')
       },
 //   onKeyDown(e ){
 //     if (e.key === 'Enter') {
@@ -91,7 +87,7 @@ export default {
   onChange(value){
     this.value = value ;
     if (this.onChange) {
-      onChange(this.onChange);
+      this.onChange(value);
     }
   },
 
@@ -105,16 +101,14 @@ export default {
   },
 
   leaveSearchMode(){
-  //  this.searchMode =  false;
+   
    
    setTimeout(()=>{
+     this.searchMode =  false;
      this.value = ''
-     this.$nextTick(() => {
-        this.$refs.input.focus();
-      });
    },300)
    
-   this.searchMode =  false;
+  //  this.searchMode =  false;
   
   },
 

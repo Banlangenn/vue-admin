@@ -1,3 +1,3 @@
 
-import CountUp from './index.vue'
-export default countup;
+import HeaderSearch from './index.vue'
+export default HeaderSearch;

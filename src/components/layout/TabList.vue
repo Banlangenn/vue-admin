@@ -45,223 +45,217 @@
   </div>
 </template>
 <script>
-// draggable  实现拖拽   t 太丑放弃 
-
-
+// draggable  实现拖拽   t 太丑放弃
 
 import { mapMutations } from "vuex";
-  export default {
-    data() {
-      return {
-        tabsData:[],
-        crrIndex:-1,
-        specialRouter:['/exception/404','/exception/403','/exception/500','/login']
-      }
-    },
-    mounted(){
-      this.addTab()
-    },
-    watch: {
-    $route() {
-      this.addTab()
-    },
+export default {
+  data() {
+    return {
+      tabsData: [],
+      crrIndex: -1,
+      specialRouter: [
+        "/exception/404",
+        "/exception/403",
+        "/exception/500",
+        "/login"
+      ]
+    };
   },
-     methods: {
+  mounted() {
+    this.addTab();
+  },
+  watch: {
+    $route() {
+      this.addTab();
+    }
+  },
+  methods: {
     ...mapMutations(["changeCollapsn"]),
-    addTab(){
+    addTab() {
       // tabs数据中没有 这个 路由
       // 特殊路由 不添加
-      if(this.specialRouter.some((item)=>item == this.$route.path)){
+      if (this.specialRouter.some(item => item == this.$route.path)) {
         this.crrIndex = -1;
         return;
-      } 
-
-      if (this.tabsData.some(v => v.path === this.$route.path)){
-          for (let i= 0; i< this.tabsData.length;i++) {
-            if (this.tabsData[i].path === this.$route.path) {
-                this.crrIndex = i
-              break
-            }
       }
-      }else{
-          // tabs数据中有 这个 路由
-          this.tabsData.push(this.$route)
-          this.crrIndex =  this.tabsData.length-1;
+      // 路由中：是否 => 路由数组中有没有，当前url   some  找到第一个  true   立马返回
+      if (this.tabsData.some(v => v.path === this.$route.path)) {
+        for (let i = 0; i < this.tabsData.length; i++) {
+          if (this.tabsData[i].path === this.$route.path) {
+            this.crrIndex = i;
+            break;
+          }
+        }
+      } else {
+        // tabs数据中有 这个 路由
+        this.tabsData.push(this.$route);
+        this.crrIndex = this.tabsData.length - 1;
       }
       //  1. icon和 title 只有放在== meta 中才能访问
       //  2. 缓存 使用 放在 seesloastore tabs
     },
-  
-        removeTab(index){
-           let crrIndex = this.crrIndex; //要变化的
-          if(index  == crrIndex && crrIndex  == 0 && this.tabsData.length == 1){
-             this.$message({
-                message: '只剩一个了  不能再删除了',
-                type: 'warning'
-             });
-              return;
-          }
-  // 不是删除自己
-  if(index <  crrIndex){
-      this.crrIndex--;
-  }else if(index >  crrIndex){
-    //  this.crrIndex--;
-  }else
-
- 
-          
-        //  删除自己
-          if(index ==crrIndex&& crrIndex  == 0){
-            this.$router.push({path:this.tabsData[crrIndex+1].path})
-        }else if(index ==crrIndex ){
-             this.$router.push({path:this.tabsData[crrIndex-1].path})
-        }
-          this.tabsData.splice(index,1)
+    removeTab(index) {
+      let crrIndex = this.crrIndex; //要变化的
+      if (index == crrIndex && crrIndex == 0 && this.tabsData.length == 1) {
+        this.$message({
+          message: "只剩一个了  不能再删除了",
+          type: "warning"
+        });
+        return;
       }
-
-   }
+      // 不是删除自己
+      if (index < crrIndex) {
+        this.crrIndex--;
+      } else if (index > crrIndex) {
+        //  this.crrIndex--;
+      } else if (index == crrIndex && crrIndex == 0) {
+        //  删除自己
+        this.$router.push({ path: this.tabsData[crrIndex + 1].path });
+      } else if (index == crrIndex) {
+        this.$router.push({ path: this.tabsData[crrIndex - 1].path });
+      }
+      this.tabsData.splice(index, 1);
+    }
   }
+};
 </script>
 <style   lang='less'>
+.warp-breadcrum {
+  display: flex;
+  align-content: center;
+  background-color: #ccc;
+  height: 42px;
+  position: relative;
+  cursor: pointer;
 
-  .warp-breadcrum {
-    display: flex;
-    align-content: center;
-    background-color: #ccc;
-    height: 42px;
-     position: relative;
-      cursor: pointer;
-      
-//  切换
-      .collapse {
-        border-top: 5px solid #ccc;
-        border-bottom: 7px solid #f2f2f2;
-        width:40px;
-        line-height: 30px;
-                i{
-                  color: #545c64;
-                  font-size: 20px;
-                &:hover{
-                  color: #7aafe4;
-                }
-                }
-         }
-
-
-
-    .tabListWp {
-      width:calc(~"100% - 40px");
-      display: flex;
-       height: 42px;
-        z-index: 1;
-        overflow: hidden;
-        border-top: 5px solid #ccc;
-        border-bottom: 7px solid #f2f2f2;
-      /*定义滚动条高宽及背景
- 高宽分别对应横竖滚动条的尺寸*/
-&::-webkit-scrollbar{
-    width:6px;
-    height:6px;
-    background-color:#F5F5F5;
-}
-/*定义滚动条轨道
- 内阴影+圆角*/
-&::-webkit-scrollbar-track{
-    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
-    border-radius:10px;
-    background-color:#F5F5F5;
-}
-/*定义滑块
- 内阴影+圆角*/
-&::-webkit-scrollbar-thumb{
-    border-radius:10px;
-    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);
-    background-color:#555;
-}
-        li:not(:first-child) {
-             margin-left: -14px;
-        }
-        li {
-              width: 200px;
-                min-width: 94px;
-        }
-       .tab {
-         color: #545c64;
-        line-height: 30px;
-         padding: 0 30px;
-         position: relative;// 为什么要用 relative; bg要定位， 取消按钮 要定位
-            &:hover{
-                  color: #7aafe4;
-                }
-         .tab-bg {
-          width:100%;
-          height: 0;
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: -2;
-          border-bottom: 30px solid #D9DEE4;
-          border-left: 15px solid  transparent;
-          border-right: 15px solid transparent;
-         }
-    
-         .tab-content {
-           i{
-             font-size: 18px;
-           }
-         }
-         .close {
-          position: absolute;
-          right:15px;
-          top:25%;
-          font-weight: 700;
-           transform:rotate(0deg) scale(1) ;
-           transition:transform .3s ease-in-out;
-          &:hover{
-              transform:rotate(180deg) scale(1.1) ;
-              color: #fff;
-              background-color: #000;
-              border-radius: 100px;
-              padding: 1px;
-          }
-         }
-         
-         .tab-active {
-          z-index: -1;
-          border-bottom: 30px solid rgb(242,242,242);
-         }       
-       }
+  //  切换
+  .collapse {
+    border-top: 5px solid #ccc;
+    border-bottom: 7px solid #f2f2f2;
+    width: 40px;
+    line-height: 30px;
+    i {
+      color: #545c64;
+      font-size: 20px;
+      &:hover {
+        color: #7aafe4;
+      }
     }
   }
 
+  .tabListWp {
+    width: calc(~"100% - 40px");
+    display: flex;
+    height: 42px;
+    z-index: 1;
+    overflow: hidden;
+    border-top: 5px solid #ccc;
+    border-bottom: 7px solid #f2f2f2;
+    /*定义滚动条高宽及背景
+ 高宽分别对应横竖滚动条的尺寸*/
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+      background-color: #f5f5f5;
+    }
+    /*定义滚动条轨道
+ 内阴影+圆角*/
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      background-color: #f5f5f5;
+    }
+    /*定义滑块
+ 内阴影+圆角*/
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #555;
+    }
+    li:not(:first-child) {
+      margin-left: -14px;
+    }
+    li {
+      width: 200px;
+      min-width: 94px;
+    }
+    .tab {
+      color: #545c64;
+      line-height: 30px;
+      padding: 0 30px;
+      position: relative; // 为什么要用 relative; bg要定位， 取消按钮 要定位
+      &:hover {
+        color: #7aafe4;
+      }
+      .tab-bg {
+        width: 100%;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -2;
+        border-bottom: 30px solid #d9dee4;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+      }
+
+      .tab-content {
+        i {
+          font-size: 18px;
+        }
+      }
+      .close {
+        position: absolute;
+        right: 15px;
+        top: 25%;
+        font-weight: 700;
+        transform: rotate(0deg) scale(1);
+        transition: transform 0.3s ease-in-out;
+        &:hover {
+          transform: rotate(180deg) scale(1.1);
+          color: #fff;
+          background-color: #000;
+          border-radius: 100px;
+          padding: 1px;
+        }
+      }
+
+      .tab-active {
+        z-index: -1;
+        border-bottom: 30px solid rgb(242, 242, 242);
+      }
+    }
+  }
+}
 
 // 向上
-         /*入场(离场)动画的时间段   */
-         .my-enter,.my-leave{
-            opacity:  0;/*透明度*/
-            transform: translateY(30px);
-        }
-        .my-enter-active,.my-leave-active{
-             transition: all .3s cubic-bezier(.55, 0, .1, 1)
-        }
-
+/*入场(离场)动画的时间段   */
+.my-enter,
+.my-leave {
+  opacity: 0; /*透明度*/
+  transform: translateY(30px);
+}
+.my-enter-active,
+.my-leave-active {
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+}
 
 //  向左
-          .list-complete-item {
-          transition: all .3s cubic-bezier(.55, 0, .1, 1)
-          }
-           .list-complete-enter,.list-complete-leave {
-             opacity: 0;
-             transform: translateX(-95px);
-           }
-            .list-complete-leave-to,.my-leave-active-leave-to{
-                      opacity: 0;
-                    transform:  scale(0);
-                    }
-          .list-complete-leave-active,.my-leave-active {
-            position: absolute;
-          }
-
-
-
+.list-complete-item {
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.list-complete-enter,
+.list-complete-leave {
+  opacity: 0;
+  transform: translateX(-95px);
+}
+.list-complete-leave-to,
+.my-leave-active-leave-to {
+  opacity: 0;
+  transform: scale(0);
+}
+.list-complete-leave-active,
+.my-leave-active {
+  position: absolute;
+}
 </style>
