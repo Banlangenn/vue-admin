@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import './plugins/element.js'
+import './plugins/smallTools.js'
 import '@/assets/icon/iconfont.css'
 import '@/index.less'
 import NProgress from 'nprogress' // progress bar
@@ -66,6 +67,15 @@ const routerObj2 = [
 		icon: 'el-icon-setting',
 		path:'permission',
 	},
+	{
+		id:"1024",
+		parentId:"1",
+		menuName:'角色权限',
+		component:'RolesMg',
+		icon: 'el-icon-setting',
+		path:'RolesMg',
+	},
+	
 	  //   PermissionMg,
 	  // About ,
 	  // HelloWorld

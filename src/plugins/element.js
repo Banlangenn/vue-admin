@@ -30,7 +30,7 @@ import {
     //   Checkbox,
     //   CheckboxButton,
     //   CheckboxGroup,
-    //   Switch,
+      Switch,
     Select,
     Option,
     //   OptionGroup,
@@ -49,7 +49,7 @@ import {
     FormItem,
     //   Tabs,
     //   TabPane,
-    //   Tag,
+      Tag,
     Tree,
     // Alert,
     //   Slider,
@@ -59,7 +59,7 @@ import {
     //   Upload,
     //   Progress,
     //   Badge,
-    // Card,
+    Card,
     //   Rate,
     //   Steps,
     //   Step,
@@ -99,7 +99,7 @@ Vue.use(Input);
 // Vue.use(Checkbox);
 // Vue.use(CheckboxButton);
 // Vue.use(CheckboxGroup);
-// Vue.use(Switch);
+Vue.use(Switch);
 Vue.use(Select);
 Vue.use(Option);
 // Vue.use(OptionGroup);
@@ -118,7 +118,7 @@ Vue.use(Form);
 Vue.use(FormItem);
 // Vue.use(Tabs);
 // Vue.use(TabPane);
-// Vue.use(Tag);
+Vue.use(Tag);
 Vue.use(Tree);
 // Vue.use(Alert);
 // Vue.use(Slider);
@@ -128,7 +128,7 @@ Vue.use(Tree);
 // Vue.use(Upload);
 // Vue.use(Progress);
 // Vue.use(Badge);
-// Vue.use(Card);
+Vue.use(Card);
 // Vue.use(Rate);
 // Vue.use(Steps);
 // Vue.use(Step);
