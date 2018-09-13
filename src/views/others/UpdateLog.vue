@@ -46,31 +46,17 @@
         },
       data() {
         return {
-          tableData: [
+          tableDataOrigin: [
             {
-                date: '2018-08-25',
-                title: '模仿 Ant Design Pro',
-                content: '特殊页面 封 组件成和 封装请求 '
+                date: '2018-09-12',
+                title: '想实现功能',
+                content: '1：角色==赋权 2： 角色自动完成'
             },
+           
             {
-                date: '2018-08-26',
-                title: '模糊查询',
-                content: '添加 组件权限  和全局搜索 模糊查询 '
-            },
-            {
-                date: '2018-08-26',
-                title: '搜索组件',
-                content: '把ant design pre 的搜索按钮，搬到vue'
-            },
-             {
-                date: '2018-08-29',
-                title: '切换账户功能',
-                content: '右上角--切换到user用户'
-            },
-            {
-                date: '2018-09-01',
-                title: '添加数字跳动',
-                content: '用的count.js  稍微封装一下vue'
+                date: '2018-09-12',
+                title: '添加角色管理',
+                content: '用vue  render 函数封装个组件==>  角色用card 展示挺好玩的'
             },
             {
                 date: '2018-09-02',
@@ -80,8 +66,43 @@
         this.suggestions = [];
         return;`
             },
+
+            {
+                date: '2018-09-01',
+                title: '添加数字跳动',
+                content: '用的count.js  稍微封装一下vue'
+            },
+
+             {
+                date: '2018-08-29',
+                title: '切换账户功能',
+                content: '右上角--切换到user用户'
+            },
+             {
+                date: '2018-08-26',
+                title: '搜索组件',
+                content: '把ant design pre 的搜索按钮，搬到vue'
+            },
+             {
+                date: '2018-08-26',
+                title: '模糊查询',
+                content: '添加 组件权限  和全局搜索 模糊查询 '
+            },
+             {
+                date: '2018-08-25',
+                title: '模仿 Ant Design Pro',
+                content: '特殊页面 封 组件成和 封装请求 '
+            },
+            
+           
           ]
         }
+      },
+      computed:{
+       tableData:function(){
+         return this.tableDataOrigin.splice(0,5)
+       }
       }
+      
     }
   </script>

@@ -11,6 +11,20 @@ NProgress.configure({ easing: 'ease',showSpinner: false})
 
 Vue.config.productionTip = false;
 
+router.beforeEach((to, from, next) => {
+	if(store.state.isLogin || to.path === '/login' ){
+		if (to.path === '/login' && store.state.isLogin ) {
+			next({ path: '/' })
+		} 
+		next()
+	}else{
+	   next({path: '/login'})
+	} 
+   });
+   router.afterEach(transition => {
+	NProgress.done();
+   });
+
 new Vue({
   router,
   store,
@@ -27,227 +41,6 @@ new Vue({
 
 
 
-
-// 全局导航守卫
-router.beforeEach((to, from, next) => {
- NProgress.start();
-
-	// if (store.state.permission.length === 0) {
-	// 	next('/')
-	// }else{
-	// 	next('/exception/403')		
-	// }
-
-	// 考虑一下怎么跳转404
-	// 1.没有权限跳转
-	// 怎么判断没有权限
-	next()
-});
-
-
-router.afterEach(transition => {
- NProgress.done();
-});
-
-
-const routerObj2 = [
-	{
-		id:"2",
-		parentId:"0",
-		menuName:'开发备注',
-		component:'Index',
-		icon: 'el-icon-setting',
-		 path:'test',
-	},
-	{
-		id:"1",
-		parentId:"0",
-		menuName:'权限',
-		component:'Index',
-		icon: 'el-icon-setting',
-		path:'permission',
-	},
-	{
-		id:"1024",
-		parentId:"1",
-		menuName:'角色权限',
-		component:'RolesMg',
-		icon: 'el-icon-setting',
-		path:'RolesMg',
-	},
-	
-	  //   PermissionMg,
-	  // About ,
-	  // HelloWorld
-	{
-		id:"3",
-		parentId:"0",
-		menuName:'测试',
-		component:'Index',
-		icon: 'el-icon-setting',
-		 path:'xxx',
-	},
-	{
-		id:"99",
-		parentId:"3",
-		menuName:'测试',
-		component:'About',
-		icon: 'el-icon-setting',
-		 path:'xxx',
-	},
-	  {
-		id:"40",
-		parentId:"0",
-		menuName:'测试-1',
-		component:'Index',
-		icon: 'iconfont-icon-home',
-		 path:'helloWorld',
-	},
-	{
-		id:"10",
-		parentId:"1",
-	   menuName:'一级1-1',
-		component:'About',
-		icon: 'el-icon-setting',
-		 path:'about',
-	},
-	{
-		id:"100",
-		parentId:"10",
-		menuName:'一级1-1-1测试字数边长',
-		component:'About',
-		icon: 'iconfont-icon-collapse-right',
-		path:'about',
-	},
-	
-	  {
-		id:"11",
-		parentId:"1",
-	   menuName:'一级ListComplete ',
-		component:'ListComplete',
-		icon: 'el-icon-setting',
-		 path:'one',
-	},
-	  {
-		id:"22",
-		parentId:"2",
-	   menuName:'添加路由和组件',
-		component:'PermissionMg',
-		icon: 'iconfont-icon-home',
-		 path:'two',
-	},
-	  {
-		id:"19  ",
-		parentId:"2",
-	   menuName:'更新日志',
-		component:'UpdateLog',
-		icon: 'el-icon-setting',
-		 path:'three',
-	},
-	{
-		id:"1922 ",
-		parentId:"2",
-	   menuName:"一些demo",
-		component:'ListComplete',
-		icon: 'el-icon-setting',
-		 path:'demo',
-	},
-	  {
-		id:"23",
-		parentId:"1",
-	   menuName:'一级1-3',
-		component:'About',
-		icon: 'iconfont-icon-collapse-right',
-		 path:'four',
-	},
-	  {
-		id:"24",
-		parentId:"1",
-	   menuName:'一级1-4',
-		component:'HelloWorld',
-		icon: 'el-icon-setting',
-		 path:'five',
-	},
-
-
-	// ====================================
-	// {
-	// 	id:"3000",
-	// 	parentId:"0",
-	// 	menuName:'测试',
-	// 	component:'Index',
-	// 	icon: 'el-icon-setting',
-	// 	 path:'xxx',
-	// },
-	// {
-	// 	id:"3001",
-	// 	parentId:"0",
-	// 	menuName:'测试',
-	// 	component:'Index',
-	// 	icon: 'iconfont-icon-home',
-	// 	 path:'xxx7',
-	// },
-	// {
-	// 	id:"3002",
-	// 	parentId:"0",
-	// 	menuName:'测试',
-	// 	component:'Index',
-	// 	icon: 'iconfont-icon-collapse-right',
-	// 	 path:'xxx8',
-	// },
-	// {
-	// 	id:"3003",
-	// 	parentId:"0",
-	// 	menuName:'测试456456',
-	// 	component:'Index',
-	// 	icon: 'iconfont-icon-home',
-	// 	 path:'xxx89',
-	// },
-	// {
-	// 	id:"3004",
-	// 	parentId:"0",
-	// 	menuName:'测试',
-	// 	component:'Index',
-	// 	icon: 'el-icon-setting',
-	// 	 path:'xxx9',
-	// },
-	// {
-	// 	id:"3005",
-	// 	parentId:"0",
-	// 	menuName:'测试',
-	// 	component:'Index',
-	// 	icon: 'el-icon-setting',
-	// 	 path:'xx11',
-	// },
-	// {
-	// 	id:"3006",
-	// 	parentId:"0",
-	// 	menuName:'测试',
-	// 	component:'Index',
-	// 	icon: 'el-icon-setting',
-	// 	 path:'xx12',
-	// },
-	// {
-	// 	id:"3007",
-	// 	parentId:"0",
-	// 	menuName:'测试',
-	// 	component:'Index',
-	// 	icon: 'el-icon-setting',
-	// 	 path:'xx13',
-	// },
-  ]
-
-
-	
-// 我应该在 登录页== 路由添加 1.本地有缓存在app.vue2.本地没有缓存 在菜单
-	setTimeout(()=>{
-		// alert(!!store.state.permission)
-		// console.log()
-		if (store.state.permission.length === 0) {
-			store.dispatch("setPermission",routerObj2);
-		}
-	},3000)
-	// store.dispatch('getproduct')// 请求
 
 
 			  

@@ -5,7 +5,12 @@ import RouterCom from './comObj';
 Vue.use(Router);
 
  const router = new Router({
-            routes: [{
+            routes: [
+                {
+                    path: "/login",
+                    component:  RouterCom['Login'],
+                },
+                {
                     path: "/",
                     component:  RouterCom['Index'],
                     children: [{
