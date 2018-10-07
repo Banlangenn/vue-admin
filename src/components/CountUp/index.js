@@ -1,3 +1,2 @@
-
-import CountUp from './index.vue'
+import CountUp from "./index.vue";
 export default CountUp;

@@ -42,9 +42,11 @@
       "plugin:vue/essential",
       "@vue/prettier"
     ],
-    "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
+    },
+    "rules": {
+      "vue/require-default-prop": "off"
     }
   },
   "postcss": {

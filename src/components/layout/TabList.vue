@@ -2,44 +2,55 @@
 <template>
   <div class="warp-breadcrum">
 
-      <!-- 随时可以把我干掉   -- 不会影响别的   可以考虑弄成个组件-->
-      <div class="tc collapse">
-            <span   @click = "changeCollapsn">
-                    <i class="iconfont-icon-collapse-right"
-                    :style="{
-                        transform:this.$store.state.isCollapse ? 'rotate(180deg)':'rotate(0deg)',
-                      transition:'transform .6s ease-in-out',
-                    }" />
-          </span>
-      </div>
-<!-- 随时可以把我干掉   -- 不会影响别的-->
+    <!-- 随时可以把我干掉   -- 不会影响别的   可以考虑弄成个组件-->
+    <div class="tc collapse">
+      <span @click = "changeCollapsn">
+        <i 
+          class="iconfont-icon-collapse-right"
+          :style="{
+            transform:this.$store.state.isCollapse ? 'rotate(180deg)':'rotate(0deg)',
+            transition:'transform .6s ease-in-out',
+        }" />
+      </span>
+    </div>
+    <!-- 随时可以把我干掉   -- 不会影响别的-->
 
-    <transition-group  tag='ul'  class="tabListWp "   name="list-complete"  >
-      <li   v-for = "(tabData,index) of tabsData"    :key = 'tabData.path'   class="list-complete-item" >
-              <router-link  
-                  :to="tabData.path" 
-                  tag="div" 
-                  class="tc tab "
-            > 
-       <div class="tab-bg" :class="crrIndex == index ? 'tab-active':'' "></div>
-       <el-tooltip
-        class="item" 
-         effect="light"
-         :content="tabData.meta.title"
-          placement="bottom"
-          :open-delay = 1000
-          popper-class= "tabTooltip"
+    <transition-group 
+      tag='ul' 
+      class="tabListWp " 
+      name="list-complete" >
+      <li 
+        v-for = "(tabData,index) of tabsData" 
+        :key = 'tabData.path' 
+        class="list-complete-item" >
+        <router-link  
+          :to="tabData.path" 
+          tag="div" 
+          class="tc tab "
+        > 
+          <div 
+            class="tab-bg" 
+            :class="crrIndex == index ? 'tab-active':'' "/>
+          <el-tooltip
+            class="item" 
+            effect="light"
+            :content="tabData.meta.title"
+            placement="bottom"
+            :open-delay = 1000
+            popper-class= "tabTooltip"
           >
-           <div class="tab-content ellipse" > 
-         <i :class="tabData.meta.icon"></i>
-          {{tabData.meta.title}}
-         </div>
-    </el-tooltip>
+            <div class="tab-content ellipse" > 
+              <i :class="tabData.meta.icon"/>
+              {{ tabData.meta.title }}
+            </div>
+          </el-tooltip>
      
-          <i class="el-icon-close close" @click.stop='removeTab(index)'></i>
-       </router-link>
-             </li>
-          </transition-group>
+          <i 
+            class="el-icon-close close" 
+            @click.stop='removeTab(index)'/>
+        </router-link>
+      </li>
+    </transition-group>
 
 
   </div>
