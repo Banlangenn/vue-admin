@@ -289,21 +289,17 @@ export default {
   methods: {
     loginHandle() {
       this.loginLoading = true
-      login(this.loginForm).then(res=> {
+      login(this.loginForm).then(res => {
         this.loginLoading = false
         if(res.code == 'success') {
-            getMenutData().then(res2=> {
-              console.log(res)
-              this.$store.commit('setUserinfo',res.data)
-              this.$store.dispatch("setPermission",res2.data)
-              this.$router.push({path:'/'})
-            })
-            
+            this.$store.commit('setUserinfo',res.data)
+            this.$store.dispatch('setPermission', res.data.menuList)
+            this.$router.push({path:'/'})  
         }else{
           this.$message.error(res.message)
         }
       }).catch(err => {
-        this.$message.error(res.message)
+        this.$message.error(err.message)
       });
     }
   }

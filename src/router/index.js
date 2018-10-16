@@ -8,8 +8,7 @@ const router = new Router({
   routes: [
     {
       path: "/login",
-      // component: RouterCom["Login"]
-      component: RouterCom["Bona"]
+      component: RouterCom["Login"]
     },
     {
       path: "/",

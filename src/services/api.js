@@ -1,17 +1,12 @@
 import request from "@/utils/request";
-const baseUrl = "http://localhost:8080";
+// const baseUrl = "http://localhost:8080";
+const baseUrl = "";
 // url,method,body,headers
 
 /**
  *  账号操作
  */
 export const login = (data) => request(`${baseUrl}/api/accounts/login`, "POST", data);
-
-
-
-
-
-
 
 
 

@@ -20,8 +20,7 @@ const comObj = {
   Exception,
   About,
   HelloWorld,
-  ListComplete,
-  Bona : () => import(/* webpackChunkName: "bona" */ "@/views/shortInsurance/bona.vue")
+  ListComplete
 };
 
 export const comArr = Object.keys(comObj);
